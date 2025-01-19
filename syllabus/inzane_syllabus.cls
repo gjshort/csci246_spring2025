@@ -114,6 +114,15 @@
 \newcommand{\taBname}[1]{\renewcommand{\taBname}{#1}}
 \newcommand{\taBofficehours}[1]{\renewcommand{\taBofficehours}{#1}}
 \newcommand{\taBoffice}[1]{\renewcommand{\taBoffice}{#1}}
+\newcommand{\taBemail}[1]{\renewcommand{\taBemail}{#1}}
+
+%----------------------------------------------------------------------------------------
+%	 Tutor Info
+%----------------------------------------------------------------------------------------
+\newcommand{\tutorname}[1]{\renewcommand{\tutorname}{#1}}
+\newcommand{\tutorofficehours}[1]{\renewcommand{\tutorofficehours}{#1}}
+\newcommand{\tutoroffice}[1]{\renewcommand{\tutoroffice}{#1}}
+\newcommand{\tutoremail}[1]{\renewcommand{\tutoremail}{#1}}
 
 %----------------------------------------------------------------------------------------
 %	 Misc. Info
@@ -223,6 +232,13 @@
             % \ifthenelse{\equal{\taBofficehours}{}}{}{\textsc{\large\iconhalf{\ClockLogo}} & \taBofficehours\\}
             \ifthenelse{\equal{\taBoffice}{}}{}{\textsc{\large\iconhalf{\faMapMarker}} & \taBoffice\\}
             % \ifthenelse{\equal{\taBemail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\taBemail}{\taBemail}\\}
+        \end{tabular}
+        
+        \profilesection{\vspace{0.5cm} Tutor Info}
+        
+        \begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
+            \ifthenelse{\equal{\tutorname}{}}{}{\textsc{\large\icon{\faUser}} & \tutorname\\}
+		  \ifthenelse{\equal{\tutoremail}{}}{}{\textsc{\large\icon{@}} & \tutoremail \\}
         \end{tabular}
         
 %         \ifthenelse{\equal{\about}{}}{}{

@@ -1,0 +1,22 @@
+
+\begin{prob}[Egyptian Fractions]
+\small
+In ancient Egypt, fractions were written as the sum of fractions with numerator $1$ and distinct denominators. For example, $\frac{61}{66} = \frac{1}{2}+ \frac{1}{3}+ \frac{1}{11}$. Prove that any fraction $\frac{a}{b}$ (with $a<b$) can be written in this form.
+
+ \medskip
+
+    {\footnotesize {\sc Hint}: Subtract the largest possible fraction of the form $\frac{1}{k}$ from $\frac{a}{b}$ .}
+
+
+
+
+\end{prob}
+
+
+ \soln{\footnotesize
+ What makes this tricky is it is not clear what to perform induction on, but once you figure that out, it goes like the binary representation. But, instead of a solution, read this very cool unsolved problem involving Egyptian fractions,  posed by one of my mathematical idols:}
+ \footnotesize
+ \url{https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Straus_conjecture}
+
+
+

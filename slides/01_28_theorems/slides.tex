@@ -1,0 +1,259 @@
+\documentclass[10pt]{beamer}
+
+%%%
+% PREAMBLE FOR THIS DOC 
+%%%
+%https://tex.stackexchange.com/questions/68821/is-it-possible-to-create-a-latex-preamble-header
+\usepackage{../preambles/beamer_preamble_for_CSCI246}
+
+
+
+%%% TRY TO RESHOW TOC AT EACH SECTION START (with current section highlighted)
+% Reference: https://tex.stackexchange.com/questions/280436/how-to-highlight-a-specific-section-in-beamer-toc
+\newcommand\tocforsect[2]{%
+  \begingroup
+  \edef\safesection{\thesection}
+  \setcounter{section}{#1}
+  \tableofcontents[#2,currentsection]
+  \setcounter{section}{\safesection}
+  \endgroup
+}
+
+
+%%%% HERES HOW TO DO IT CORRECTLY
+% FIRST IN .STY FILE, DO
+%\usetheme[sectionpage=none]{metropolis}
+% THEN AT EACH SECTION DO
+%\begin{frame}{Outline}
+%  \tableofcontents[currentsection]	
+%\end{frame}
+
+
+
+%\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}[frame number]{}
+
+
+%%%
+% DOCUMENT
+%%%
+
+\begin{document}
+
+%\maketitle
+
+%% Title page frame
+%\begin{frame}
+%    \titlepage 
+%\end{frame}
+
+
+
+
+
+\title{Friday 01/17/2025: Theorems}
+\author{CSCI 246: Discrete Structures}
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+
+
+\begin{frame}{Quiz}
+
+Replace each $\red{?}$ with a checkmark \greencheck if the combination of truth values for propositions A and B is \textit{possible} under the given logical connective.  Replace it with a \redx if the combination is \textit{impossible}.
+
+\begin{table}
+\centering
+\begin{tabular}{cc|ccc}
+\multicolumn{2}{c}{\textbf{Propositions}} & \multicolumn{3}{c}{\textbf{Logical Connectives}} \\
+A  & B & if A then B & if B then A & A if and only if B \\
+\hline 
+T & T & \red{?} & \red{?} & \red{?}\\
+T & F &\red{?}  & \red{?} & \red{?} \\
+F & T & \red{?} & \red{?} & \red{?} \\
+F & F & \red{?} &\red{?}  & \red{?}
+\end{tabular}
+\end{table}
+\vfill \vfill \vfill 
+\pause 
+\alertstar \alert{See whiteboard for solution.}
+\end{frame}
+
+
+\begin{frame}{Propositional logic}
+\label{slide:prop_logic}
+\small 
+\begin{table}
+\centering
+\begin{tabular}{cc|ccc}
+\multicolumn{2}{c}{\textbf{Original propositions}} & \multicolumn{3}{c}{\textbf{New propositions}} \\
+A  & B & if A then B & if B then A & A if and only if B \\
+\hline 
+T & T & \green{T}  & \green{T} & \green{T}\\
+T & F & \red{F} & \green{T} &  \red{F}  \\
+F & T & \green{T}  &  \red{F}  &  \red{F}  \\
+F & F & \green{T} & \green{T} & \green{T}
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+\item The column headings show 3 new propositions, formed from the original propositions by \textbf{logical connectives}.
+\item The first two columns combined with one remaining column gives the \textbf{truth table} for that logical connective. 
+\item Each logical connective can be thought of as a \textbf{function} or mapping from $\set{T,F} \times \set{T,F} \to \set{T,F}$. 
+\item There are other such functions (\texttt{and, or, xor}, etc.), some of which were discussed in the text.
+\item The study of how to combine and change propositions under logical connectives to form more complex propositions is called \textbf{propositional logic}. 
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}[standout]
+
+\alert{Group work!}
+\vfill
+Students are randomly assigned into groups of 3 on the next slide.
+\vfill 
+Each group gets $\half$ of a white board.
+\vfill
+If the  $\half$ white board is inconvenient, feel free to write on a window! 
+\end{frame}
+
+\begin{frame}
+\footnotesize
+Group 1: timothy.true,conner.reed1,connor.mizner\\
+Group 2: jacob.ruiz1,evan.barth,evan.schoening\\
+Group 3: matthew.nagel,connor.graville,adam.wyszynski\\
+Group 4: lynsey.read,connor.yetter,ryan.barrett2\\
+Group 5: caitlin.hermanson,james.brubaker,peter.buckley1\\
+Group 6: derek.price4,alexander.goetz,jacob.ketola\\
+Group 7: tristan.nogacki,jeremiah.mackey,michael.oswald\\
+Group 8: nicholas.harrington1,aaron.loomis,joseph.windmann\\
+Group 9: samuel.rollins,zeke.baumann,samuel.hemmen\\
+Group 10: erik.moore3,colter.huber,devon.maurer\\
+Group 11: jonas.zeiler,luke.donaldson1,carver.wambold\\
+Group 12: jett.girard,carsten.brooks,justice.mosso\\
+Group 13: luka.derry,nolan.scott1,owen.obrien\\
+Group 14: anthony.mann,samuel.mosier,blake.leone\\
+Group 15: yebin.wallace,peyton.trigg,emmeri.grooms\\
+Group 16: julia.larsen,tyler.broesel,sarah.periolat\\
+Group 17: bridger.voss,jack.fry,micaylyn.parker\\
+Group 18: jacob.shepherd1,ethan.johnson18,joseph.triem\\
+Group 19: cameron.wittrock,lucas.jones6,jada.zorn\\
+Group 20: reid.pickert,delaney.rubb,alexander.knutson\\
+Group 21: griffin.short,jakob.kominsky,john.fotheringham\\
+Group 22: mason.barnocky,william.elder1,kaden.price\\
+Group 23: pendleton.johnston,joseph.mergenthaler
+\end{frame}
+
+
+\begin{frame}{Group exercises}
+\small 
+\begin{enumerate}
+ % Scheinerman
+	\item It is a common mistake to confuse the following two statements (i) If A, then B and (ii) If B, then A. Find two conditions A and B such that statement (i) is true but statement (ii) is false. Then find two conditions A and B such that both statements are true. 
+% Erciyes 
+	\item  Two propositions are considered \textit{equivalent} if they have the same truth table values. Show that the biconditional $A \iff B$ is equivalent to $(A \implies B) \, \texttt{and} \, (B \implies A)$.
+ % Scheinerman
+	\item Consider these two statements: (i) If A, then B, (ii) If (not B), then (not A).  Under what circumstances are these statements true?  When are they false? Explain whether these statements are identical or not. \alert{[Note: (ii) is called the \textbf{contrapositive} of (i).]}
+ % Norman Swartz
+	\item (Challenge problem, from philosopher Norman Swartz.)  Is the following statement true or false, and why? \textit{A's-being-a-necessary-condition-for-B is both a necessary and sufficient condition for B's-being-a-sufficient-condition-for-A.}
+\end{enumerate}
+	
+\end{frame}
+
+
+\begin{frame}{Question 1: Solution}
+$A \implies B$ but $B \centernot\implies A$: \\
+A = I lived in Los Angeles \\
+B = I lived in California. \\
+\vfill 
+$A \iff B$: \\
+A = Valentine's Day is this month \\
+B = This month is February. 
+\end{frame}
+
+\begin{frame}{Question 2: Solution}
+\footnotesize
+ The truth table for the ``\texttt{and}" operator (also written $\land$) is given by  
+\begin{center}
+\begin{tabular}{cc|c}
+\multicolumn{2}{c}{\textbf{Original propositions}} & \multicolumn{1}{c}{\textbf{New propositions}} \\
+X & Y & $X \land Y$ \\
+\hline 
+T & T & T \\
+T & F & F \\
+F & T & F  \\
+F & F & F  \\
+\end{tabular}
+\end{center}
+
+Now we apply the $\land$ operator to the results of the $\implies$ and $\impliedby$ operators.
+ 
+\begin{table}
+\centering
+\begin{tabular}{cc|ccc}
+\multicolumn{2}{c}{\textbf{Orig. props.}} & \multicolumn{3}{c}{\textbf{New props.}} \\
+A & B & $\overbrace{A \implies B}^{X}$  & $\overbrace{B \implies A}^{Y}$& $\overbrace{(A \implies B) \land  (B \implies A)}^{X \land Y}$ \\
+\hline 
+T & T & \green{T}  & \green{T} & \green{T}\\
+T & F & \red{F} & \green{T} &  \red{F}  \\
+F & T & \green{T}  &  \red{F}  &  \red{F}  \\
+F & F & \green{T} & \green{T} & \green{T}
+\end{tabular}
+\end{table}
+%
+Note that $(A \implies B) \land  (B \implies A)$ gives the same results as $A \iff B$ as on Slide \ref{slide:prop_logic}.
+
+\end{frame}
+
+
+\begin{frame}{Question 3: Solution}
+\footnotesize
+Recall from Slide \ref{slide:prop_logic} that the truth table for the $\implies$ operator is given by  
+\begin{center}
+\begin{tabular}{cc|c}
+X & Y & $\overbrace{X \implies Y}^{\text{If X, then Y}}$ \\
+\hline 
+T & T & T \\
+T & F & F \\
+F & T & T  \\
+F & F & T  \\
+\end{tabular}
+\end{center}
+
+Now we apply the $\implies$ operator to the results of the "\texttt{not}" operator (also written $\lnot$).
+ 
+\begin{table}
+\centering
+\begin{tabular}{cc|ccc}
+\multicolumn{2}{c}{\textbf{Orig. props.}} & \multicolumn{3}{c}{\textbf{New props.}} \\
+A & B & $\overbrace{\lnot A}^{Y}$  & $\overbrace{\lnot B}^{X}$& $\overbrace{\lnot B \implies \lnot A)}^{X \implies Y}$ \\
+\hline 
+T & T & \green{T}  & \green{T} & \green{T}\\
+T & F & \red{F} & \green{T} &  \red{F}  \\
+F & T & \green{T}  &  \red{F}  &  \green{T}  \\
+F & F & \green{T} & \green{T} & \green{T}
+\end{tabular}
+\end{table}
+%
+Note that $\lnot B \implies \lnot A$ gives the same results as $A \implies B$ as on Slide \ref{slide:prop_logic}.
+\vfill 
+\pause 
+\alertstar \alert{Remark: We've shown that a proposition is logically equivalent to its contrapositive.  So what?  Sometimes it's easier to verify the contrapositive version.}
+\end{frame}
+
+\begin{frame}{Question 4: Solution}
+The simplest way to see this is as follows:
+\begin{itemize}
+\item A's-being-a-necessary-condition-for-B can be expressed as $B \implies A$.
+\item B's-being-a-sufficient-condition-for-A can be expressed as $B \implies A$. 
+\item In other words, both propositions are the same: $B \implies A$. And a proposition is always necessary and sufficient for itself.  
+\end{itemize}
+
+\end{frame}
+
+
+\end{document}

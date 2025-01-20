@@ -213,19 +213,12 @@
             \ifthenelse{\equal{\classloc}{}}{}{\textsc{\large\iconhalf{\faMapMarker}} & \classloc\\}
             \end{tabular}
         
-%        \profilesection{ \vspace{0.5cm}Lab Info}
-%        
-%        \begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
-%            \ifthenelse{\equal{\labdays}{}}{}{\textsc{\iconhalf{\faCalendarO}} & \labdays\\}
-%            \ifthenelse{\equal{\labhours}{}}{}{\textsc{\large\iconhalf{\ClockLogo}} & \labhours\\}
-%            \ifthenelse{\equal{\labloc}{}}{}{\textsc{\large\iconhalf{\faMapMarker}} & \labloc\\}
-%        \end{tabular}
-%        
+       
         \profilesection{\vspace{0.5cm} TA Info}
         
         \begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
             \ifthenelse{\equal{\taAname}{}}{}{\textsc{\large\icon{\faUser}} & \taAname\\}
-%            \ifthenelse{\equal{\taAofficehours}{}}{}{\textsc{\large\iconhalf{\ClockLogo}} & \taAofficehours\\}
+            \ifthenelse{\equal{\taAofficehours}{}}{}{\textsc{\large\iconhalf{\ClockLogo}} & \taAofficehours\\}
             \ifthenelse{\equal{\taAoffice}{}}{}{\textsc{\large\iconhalf{\faMapMarker}} & \taAoffice\\}
 		  \ifthenelse{\equal{\taAemail}{}}{}{\textsc{\large\icon{@}} & \taAemail \\}
             \ifthenelse{\equal{\taBname}{}}{}{\textsc{\large\icon{\faUser}} & \taBname\\}
@@ -234,11 +227,13 @@
             % \ifthenelse{\equal{\taBemail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\taBemail}{\taBemail}\\}
         \end{tabular}
         
-        \profilesection{\vspace{0.5cm} Tutor Info}
+        \profilesection{Tutor Info}
         
         \begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
             \ifthenelse{\equal{\tutorname}{}}{}{\textsc{\large\icon{\faUser}} & \tutorname\\}
 		  \ifthenelse{\equal{\tutoremail}{}}{}{\textsc{\large\icon{@}} & \tutoremail \\}
+            \ifthenelse{\equal{\tutorofficehours}{}}{}{\textsc{\large\iconhalf{\ClockLogo}} &\tutorofficehours\\}
+            \ifthenelse{\equal{\tutoroffice}{}}{}{\textsc{\large\iconhalf{\faMapMarker}} & \tutoroffice\\}       
         \end{tabular}
         
 %         \ifthenelse{\equal{\about}{}}{}{

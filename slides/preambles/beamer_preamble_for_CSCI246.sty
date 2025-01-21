@@ -604,5 +604,42 @@
 }
 
 
+%%% TEXT HIGHLIGHTING
+
+% Usage: This is \hlorange{highlighted text}.
+
+\usepackage{soul}      % For text highlighting
+
+\newcommand*{\hlorange}[1]{%
+    \tikz[baseline=(X.base)] 
+    \node[fill=orange!30, text width=\linewidth-4pt, align=left, inner sep=2pt] (X) {#1};%
+}
+\newcommand*{\hlgreen}[1]{%
+    \tikz[baseline=(X.base)] 
+    \node[fill=green!30, text width=\linewidth-4pt, align=left, inner sep=2pt] (X) {#1};%
+}
+\newcommand*{\hlblue}[1]{%
+    \tikz[baseline=(X.base)] 
+    \node[fill=blue!30, text width=\linewidth-4pt, align=left, inner sep=2pt] (X) {#1};%
+}
+
+\newcommand*{\hlred}[1]{%
+    \tikz[baseline=(X.base)] 
+    \node[fill=red!30, text width=\linewidth-4pt, align=left, inner sep=2pt] (X) {#1};%
+}
+
+%%%  FOR TABLE WITH ANNOTATIONS
+\PassOptionsToPackage{table,xcdraw}{xcolor} % For color customization 
+\usepackage{array}               % For column customization
+\usepackage{tabularx}            % For flexible-width tables
+\usepackage{ragged2e}            % For text alignment
+
+% Define a custom column type for annotations
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+
+
 
 

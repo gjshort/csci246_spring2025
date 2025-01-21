@@ -254,6 +254,18 @@
 \newcommand{\purplemathbox}[1]{\purplebox{ $ {#1} $ }}
 %https://github.com/matze/mtheme
 
+% Command for a blue shaded box with text wrapping
+\newcommand{\bluetextbox}[1]{%
+    \tikz[baseline]{%
+        \node[
+            fill=blue!20,
+            text width=\dimexpr\linewidth-2em\relax, % Adjust width for wrapping
+            align=left, % Align text inside the box
+            inner sep=5pt, % Padding inside the box
+            rounded corners=2mm % Rounded corners for a nicer appearance
+        ] {#1};%
+    }%
+}
 
 %%% CHANGE BEAMER BLOCK COLOR
 \setbeamercolor{block title}{bg=blue!30,fg=black}

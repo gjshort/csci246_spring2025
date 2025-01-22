@@ -602,18 +602,6 @@
     \bluestar\;#1\;\bluestar
 }
 
-%%% SHADED COLORED BOX
-% Define a custom command for colored text box
-\newtcolorbox{mybox}[1][]{%
-    enhanced,
-   colback=yellow!20, % Background color
-   colframe=yellow!80!black, % Frame color
-    fonttitle=\bfseries,
-    title=#1,          % Optional title
-    boxrule=1mm,       % Thickness of the border
-    arc=4mm,           % Rounded corners
-    coltitle=black,    % Title text color
-}
 
 
 %%% TEXT HIGHLIGHTING
@@ -651,7 +639,44 @@
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 
+%%% SHADED COLORED BOXES 
+% Usage:
+% \begin{greenbox}[title=Custom Title]
+%This green box has a title and uses the same styling as the previous one.
+%\end{greenbox}
+
+% Define a new environment with a green shaded background
+\tcbset{
+    mygreenbox/.style={
+        colback=green!20,      % Light green background
+        colframe=green!50!black, % Darker green frame
+        coltext=black,          % Text color
+        boxrule=1pt,            % Border thickness
+        arc=4mm,                % Rounded corners
+        left=5pt,               % Left padding
+        right=5pt,              % Right padding
+        top=5pt,                % Top padding
+        bottom=5pt              % Bottom padding
+    }
+}
+
+\newtcolorbox{mydef}[1][]{mygreenbox, #1} % Environment for yellow box
 
 
+\tcbset{
+    myyellowbox/.style={
+        colback=yellow!20,      % Light green background
+        colframe=yellow!50!black, % Darker green frame
+        coltext=black,          % Text color
+        boxrule=1pt,            % Border thickness
+        arc=0mm,                % Rounded corners
+        left=5pt,               % Left padding
+        right=5pt,              % Right padding
+        top=5pt,                % Top padding
+        bottom=5pt              % Bottom padding
+    }
+}
+
+\newtcolorbox{quiz}[1][]{myyellowbox, #1} % Environment for yellow box
 
 

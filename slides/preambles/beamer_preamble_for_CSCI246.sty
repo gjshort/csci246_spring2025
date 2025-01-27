@@ -661,6 +661,7 @@
 }
 
 \newtcolorbox{mydef}[1][]{mygreenbox, #1} % Environment for yellow box
+\newtcolorbox{mygreenbox}[1][]{mygreenbox, #1} % Environment for yellow box
 
 
 \tcbset{
@@ -680,4 +681,20 @@
 \newtcolorbox{quiz}[1][]{myyellowbox, #1} % Environment for yellow box
 \newtcolorbox{myyellowbox}[1][]{myyellowbox, #1} % Environment for yellow box
 
+
+
+\tcbset{
+    myredbox/.style={
+        colback=red!20,      % Light green background
+        colframe=red!50!black, % Darker green frame
+        coltext=black,          % Text color
+        boxrule=1pt,            % Border thickness
+        arc=0mm,                % Rounded corners
+        left=5pt,               % Left padding
+        right=5pt,              % Right padding
+        top=5pt,                % Top padding
+        bottom=5pt              % Bottom padding
+    }
+}
+\newtcolorbox{myredbox}[1][]{myredbox, #1} % Environment for yellow box
 

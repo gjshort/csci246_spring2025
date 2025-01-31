@@ -115,7 +115,7 @@
 \definecolor{purple}{rgb}{0.5, 0.0, 0.5}
 \definecolor{lightblue}{RGB}{232, 244, 255}
 \definecolor{cyan}{rgb}{0.0, 1.0,1.0}
-
+\definecolor{gold}{RGB}{204,153,0} %{184, 134, 11}
 
 % TODO: Can't assume we'll go back to black, necessarily.
 \newcommand{\purple}[1]{\color{purple}{#1}  \color{black}}
@@ -125,6 +125,7 @@
 \newcommand{\darkgreen}[1]{\color{darkgreen}{#1}  \color{black}}
 \newcommand{\darkblue}[1]{\color{darkblue}{#1}  \color{black}}
 \newcommand{\cyan}[1]{\color{cyan}{#1}  \color{black}}
+\newcommand{\gold}[1]{\color{gold}{#1}  \color{black}}
 
 
 %%% GENERALLY USEFUL 
@@ -626,6 +627,11 @@
 \newcommand*{\hlred}[1]{%
     \tikz[baseline=(X.base)] 
     \node[fill=red!30, text width=\linewidth-4pt, align=left, inner sep=2pt] (X) {#1};%
+}
+
+\newcommand*{\hlyellow}[1]{%
+    \tikz[baseline=(X.base)] 
+    \node[fill=yellow!30, text width=\linewidth-4pt, align=left, inner sep=2pt] (X) {#1};%
 }
 
 %%%  FOR TABLE WITH ANNOTATIONS

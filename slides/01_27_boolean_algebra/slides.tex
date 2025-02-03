@@ -7,7 +7,6 @@
 \usepackage{/Users/miw267/Repos/csci246_spring2025/slides/preambles/beamer_preamble_for_CSCI246}
 
 
-
 %%% TRY TO RESHOW TOC AT EACH SECTION START (with current section highlighted)
 % Reference: https://tex.stackexchange.com/questions/280436/how-to-highlight-a-specific-section-in-beamer-toc
 \newcommand\tocforsect[2]{%
@@ -319,6 +318,313 @@ Group 22: john.fotheringham,adam.wyszynski,matthew.nagel, timothy.true\\
 		\end{enumerate}
 	\item Reprove the items in \#2 and \#3 using the properties in Theorem 7.2 and the fact  from Prop 7.3 that $x \implies y$ is equivalent to $(\lnot x) \lor y$.
 \end{enumerate}
+\end{frame}
+
+\begin{frame}[standout]
+Solutions to group exercises	
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#1a}
+\textbf{Problem.} DeMorgan's laws are:
+	\[ \lnot (X \land Y) = (\lnot X) \lor (\lnot Y) \quad \text{and} \quad \lnot (X \lor Y) = (\lnot X) \land (\lnot Y) \]
+	Prove the first of these (using truth tables).  \\
+	
+\textbf{Solution.} 
+\begin{center}
+\begin{tabular}{cc|cc|ccc}
+X & Y & $X \land Y$ & $ \lnot (X \land Y)$  & $ \lnot X$   & $ \lnot Y$  & $ (\lnot X) \lor (\lnot Y)$  \\
+\hline 
+T & T & T & F & F & F & F\\
+T & F & F &T & F & T & T\\
+F & T & F  &T &T & F & T \\
+F & F & F  &T  &T & T & T\\
+\end{tabular}
+\end{center}	
+
+The 4th and 7th columns have the same truth values.  Hence, $ \lnot (X \land Y) = (\lnot X) \lor (\lnot Y)$. 
+\end{frame}
+
+
+
+\begin{frame}{Solution to group exercise \#1b}
+\small 
+
+\textbf{Problem.} 
+Use DeMorgan's law to show how to disprove an if-and-only-if statement.
+
+
+\textbf{Solution.} In Group Exercise \#2 from the Theorems day, we showed that
+%
+\begin{align}
+ A \iff B  \quad  = \quad (A \implies B) \land (B \implies A).
+ \label{eqn:iff_equality}
+\end{align}
+%
+That is, A-if-and-only-if B is identical to if-A-then-B \texttt{and} if-B-then-A.
+\vfill 
+To \alert{disprove} an if-and-only-if statement, we need to establish $\lnot (A \iff B)$.  Now note that:
+%
+\begin{align*}
+\lnot (A \iff B) & = \lnot \bigg((A \implies B) \land (B \implies A)  \bigg) && \scripttext{(by substituting \Eqref{eqn:iff_equality})}. \\
+&=  \lnot  (A \implies B) \lor  \lnot (B \implies A)  && \scripttext{(by DeMorgan's law)}
+\end{align*}
+ %
+So we can disprove and if-and-only-if statement \textit{either} by showing that $A \implies B$ fails \textit{or} by showing that $B \implies A$ fails.  
+
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#2a}
+\textbf{Problem.} Use truth tables to show the following is a  tautology:
+\[ (X \lor Y) \lor (X \lor \lnot Y) \]
+\vfill 
+\textbf{Solution.}
+\begin{center}
+\begin{tabular}{ccc|cc|c}
+X & Y & $\lnot Y$ & $X \lor Y$ & $ X \lor (\lnot Y)$  & $ \big(X \lor Y\big) \lor \big(X \lor \lnot Y \big)$    \\
+\hline 
+T & T & F & T & T & T \\
+T & F & T &T & T & T \\
+F & T & F  &T &F & T \\
+F & F & T  &F  &T & T \\
+\end{tabular}
+\end{center}
+
+The last column shows that $ (X \lor Y) \lor (X \lor \lnot Y)$ is always true, and hence a tautology. 
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2b}
+\textbf{Problem.} Use truth tables to show the following is a tautology:
+\[X \implies X.\]
+\vfill 
+\textbf{Solution.}
+Recall the truth table for implication. 
+\begin{center}
+\begin{tabular}{ccc}
+X & Y & $X \implies Y$   \\
+\hline 
+T & T & T \\
+T & F & F\\
+F & T & T  \\
+F & F & T  \\
+\end{tabular}
+\end{center}
+
+Here we have Y=X.  So only the first and last row of the truth table ever occur.  So  $X \implies X$ is always true.  Thus,  $X \implies X$ is a tautology.
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2\,c}
+\textbf{Problem.} Use truth tables to show the following is a tautology:
+\[ \texttt{FALSE} \implies X\]
+\vfill 
+\textbf{Solution.}
+The truth table for implication is
+\begin{center}
+\begin{tabular}{ccc}
+W & X & $W \implies X$   \\
+\hline 
+T & T & T \\
+T & F & F\\
+F & T & T  \\
+F & F & T  \\
+\end{tabular}
+\end{center}
+
+But here, we know $W$ is \texttt{FALSE}.  That is, only the last two rows of the truth table ever occur.  So  $\texttt{FALSE} \implies X$ is always true.  Hence,  $\texttt{FALSE} \implies X$ is a tautology. 
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#2\,d}
+\footnotesize 
+\textbf{Problem.} Use truth tables to show the following is a tautology:
+\[ (X \implies Y) \land (Y \implies Z) \implies (X \implies Z) \]
+
+\vfill 
+\textbf{Solution.}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{cc|c c c c |c c c c}
+        %\multirow{2}{*}{\textbf{Score}} & \multirow{2}{*}{\textbf{Frequency}} & 
+        \toprule 
+        \textbf{Proposition} & \textbf{Nickname} & \multicolumn{8}{c}{\textbf{Values}} \\
+        \midrule
+        X &&T&T&F&F&T&T&F&F \\
+        Y &&T&F&T&F&T&F&T&F \\
+        Z && \multicolumn{4}{c}{\cellcolor[gray]{0.9} T} &  \multicolumn{4}{c}{ \cellcolor[gray]{0.7} F}\\  
+        \midrule
+        $X \implies Y$&A &T&F&T&T&T&F&T&T \\
+        $Y \implies Z$&B &\multicolumn{4}{c}{\cellcolor[gray]{0.9} T}&F&T&F&T \\
+        $(X \implies Y) \land (Y \implies Z)$ &$C \defeq A \land B$ &T&F&T&T&F&F&F&T \\
+        $X \implies Z$ &D &\multicolumn{4}{c}{\cellcolor[gray]{0.9} T} & F & F & T & T \\
+         \tiny $(X \implies Y) \land (Y \implies Z) \implies (X \implies Z)$ &$C \implies D$&\multicolumn{4}{c}{\cellcolor[gray]{0.9} T} &  \multicolumn{4}{c}{ \cellcolor[gray]{0.7} T}\\
+        \bottomrule
+    \end{tabular}
+\end{table}	
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#3a}
+\footnotesize 
+\textbf{Problem.} Use truth tables to show the following is a contradiction:
+\[ (X \lor Y) \land (X \lor \lnot Y) \land \lnot X \]
+
+\vfill 
+\textbf{Solution.}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c | c|c c c c}
+        \toprule 
+        \textbf{Proposition} & \textbf{Nickname}& \multicolumn{4}{c}{\textbf{Truth Values}} \\
+        \midrule
+        X &&T&T&F&F\\
+        Y &&T&F&T&F\\ 
+        \midrule
+        $X \lor Y$&A&T&T&T&F\\
+        \midrule 
+        $\lnot Y$ &&F&T&F&T \\
+        $X \lor (\lnot Y)$&B &T&T&F&T \\
+        \midrule 
+        $\lnot X$&C &F&F&T&T \\
+        $(X \lor Y) \land (X \lor \lnot Y) \land \lnot X$ & $A \land B \land C$ &F&F&F&F \\
+        \bottomrule
+    \end{tabular}
+\end{table}	
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#3b}
+\footnotesize 
+\textbf{Problem.} Use truth tables to show the following is a contradiction:
+\[ X \land (X \implies Y) \land (\lnot Y) \]
+
+\vfill 
+\textbf{Solution.}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c | c|c c c c}
+        \toprule 
+        \textbf{Proposition} & \textbf{Nickname}& \multicolumn{4}{c}{\textbf{Truth Values}} \\
+        \midrule
+        X &A&T&T&F&F\\
+        Y &&T&F&T&F\\ 
+        \midrule
+        $X \implies Y$&B&T&F&T&T\\
+        $\lnot Y$ &C &F&T&F&T \\
+        \midrule 
+        $X \land (X \implies Y) \land (\lnot Y)$ & $A \land B \land C$ &F&F&F&F \\
+        \bottomrule
+    \end{tabular}
+\end{table}	
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#4}
+\footnotesize 
+
+The solutions to group exercise \#4 refer to the properties from the textbook below. 
+\vfill 
+\begin{figure}[ht]
+        \centering
+        \includegraphics[width=\textwidth]{images/boolean_algebra_properties}
+        \caption{Boolean Algebra Properties}
+        \label{fig:bap}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#4 - Redo of 2a}
+
+\textbf{Problem.} Show the following is a  tautology:
+\[ (X \lor Y) \lor (X \lor \lnot Y) \]
+\vfill 
+\textbf{Solution.}
+
+\begin{align*}
+(X \lor Y) \lor (X \lor \lnot Y) &= 	(X \lor X) \lor (Y \lor \lnot Y) && \scripttext{(commutative, associative props.)} \\
+&= X \lor \texttt{True} && \scripttext{(unnamed props \#5,7)} \\
+&= \texttt{True} && \scripttext{(unnamed prop \#7)}
+\end{align*}
+
+\end{frame}
+		
+
+\begin{frame}{Solution to group exercise \#4 - Redo of  \#2b}
+\textbf{Problem.} Show the following is a tautology:
+\[X \implies X.\]
+\vfill 
+\textbf{Solution.}
+\begin{align*}
+X \implies X  &= 	(\lnot X \lor X) && \scripttext{(Prop 7.3)} \\
+&= \texttt{True} && \scripttext{(unnamed prop \#7)} 
+\end{align*}
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#4 - Redo of  \#2\,c}
+\textbf{Problem.} Show the following is a tautology:
+\[ \texttt{FALSE} \implies X\]
+\vfill 
+\textbf{Solution.}
+%
+\begin{align*}
+\texttt{FALSE} \implies X  &= 	(\lnot \texttt{FALSE}) \lor X && \scripttext{(Prop 7.3)} \\
+&= \texttt{TRUE} \lor X \\
+&= \texttt{TRUE}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#4 - Redo of  \#2\,d}
+\footnotesize 
+\textbf{Problem.} Show the following is a tautology:
+\[ (X \implies Y) \land (Y \implies Z) \implies (X \implies Z) \]
+
+\vfill 
+%
+\begin{align*}
+& \explaintermbrace{$\defeq A$}{(X \implies Y) \land (Y \implies Z)} \implies \explaintermbrace{$\defeq B$}{(X \implies Z)} \\
+=& \lnot A \lor B  && \scripttext{(Prop 7.3)}  \\
+=& \bigg(  \lnot \big[X \implies Y \big] \lor \big[\lnot (Y \implies Z)\big] \bigg) \lor (X \implies Z)  && \scripttext{(DeMorgan's Law)}  \\
+=& (X \lor \lnot Y) \lor (Y \lor \lnot Z) \lor (\lnot X \lor Z) && \scripttext{(Prop 7.3, DeMorgan's Law)}  \\
+=& (X \lor \lnot X) \lor (Y \lor \lnot Y) \lor (Z \lor \lnot Z) && \scripttext{(Associative, commutative props.)}  \\
+=& \texttt{TRUE}  \lor \texttt{TRUE}\lor \texttt{TRUE} && \scripttext{Unnamed Prop \#7} \\
+=& \texttt{TRUE}
+\end{align*}
+%
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#4 - Redo of  \#3a}
+\footnotesize 
+\textbf{Problem.} Show the following is a contradiction:
+\[ (X \lor Y) \land (X \lor \lnot Y) \land \lnot X \]
+
+\vfill 
+\textbf{Solution.}
+\begin{align*}
+& (X \lor Y) \land (X \lor \lnot Y) \land \lnot X \\
+=& (X \land X \land \lnot X) \lor (X \land \lnot Y \land \lnot X) \lor (Y \land X \land \lnot X) \lor (Y \land \lnot Y \land \lnot X) && \scripttext{Distributive prop.} \\
+=& \texttt{FALSE} \lor \texttt{FALSE} \lor  \texttt{FALSE} \lor  \texttt{FALSE}  && \scripttext{Unnamed prop. \# 7} \\
+=& \texttt{FALSE}
+\end{align*}
+\vfill 
+\vfill
+\begin{myredbox}[title=Remark]
+A tricky part of applying the properties is using the distributive law correctly.  For intuition, recall how multiplication distributes over addition [e.g. $4(3+5) = 4 \cdot 3 + 4 \cdot 5$]. 
+\end{myredbox}
+
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#4 - Redo of  \#3b}
+\footnotesize 
+\textbf{Problem.} Show the following is a contradiction:
+\[ X \land (X \implies Y) \land (\lnot Y) \]
+
+\vfill 
+\textbf{Solution.}
+\begin{align*}
+& X \land (X \implies Y) \land (\lnot Y) \\
+=& 	 X \land (\lnot X \lor Y) \land (\lnot Y) && \scripttext{Prop 7.3} \\
+=& (X \land \lnot X \land \lnot Y) \lor (X \land Y \land \lnot Y) && \scripttext{Distributive prop.} \\
+=& \texttt{FALSE} \lor \texttt{FALSE} && \scripttext{Unnamed prop. \# 7} \\
+=& \texttt{FALSE}
+\end{align*}
 \end{frame}
 
 

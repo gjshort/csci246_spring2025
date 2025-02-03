@@ -61,9 +61,7 @@
 
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
-
-
-
+%
 \usepackage{amsmath}
 \usepackage{media9}
 \usepackage{xspace}
@@ -604,8 +602,17 @@
 }
 
 
+%%%
+%MULTIROW
+%%% 
 
-%%% TEXT HIGHLIGHTING
+\usepackage{multirow}
+
+
+
+%%% 
+% TEXT HIGHLIGHTING
+%%%
 
 % Usage: This is \hlorange{highlighted text}.
 
@@ -634,7 +641,9 @@
     \node[fill=yellow!30, text width=\linewidth-4pt, align=left, inner sep=2pt] (X) {#1};%
 }
 
-%%%  FOR TABLE WITH ANNOTATIONS
+%%%  
+% FOR TABLE WITH ANNOTATIONS
+%%%
 \PassOptionsToPackage{table,xcdraw}{xcolor} % For color customization 
 \usepackage{array}               % For column customization
 \usepackage{tabularx}            % For flexible-width tables
@@ -645,11 +654,13 @@
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 
-%%% SHADED COLORED BOXES 
+%%% 
+% SHADED COLORED BOXES 
+%%%
 % Usage:
-% \begin{greenbox}[title=Custom Title]
+% \begin{mygreenbox}[title=Custom Title]
 %This green box has a title and uses the same styling as the previous one.
-%\end{greenbox}
+%\end{mygreenbox}
 
 % Define a new environment with a green shaded background
 \tcbset{
@@ -703,4 +714,10 @@
     }
 }
 \newtcolorbox{myredbox}[1][]{myredbox, #1} % Environment for yellow box
+
+%%%
+% CHANGE BACKGROUND COLOR IN CELL TABLES
+%%%
+%Usage: \cellcolor[gray]{0.9}
+\usepackage{colortbl} % Use colortbl instead of xcolor
 

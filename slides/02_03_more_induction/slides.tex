@@ -215,6 +215,7 @@ Group 22: tristan.nogacki,bridger.voss,luka.derry\\\end{frame}
 \footnotesize 
 
 \begin{enumerate}
+\item Show by induction that $n^2-n$ is even for any natural number $n$ (that is, for $n=0,1,2,\hdots$).
 \item  Show by induction that $2^n < n!$ for all $n \geq 4$.	
 \item Show by induction that $f_0 + \cdots + f_n = f_{n+2} -1$ in the Fibonacci sequence.
 \item Show by induction that $f_n < 2^n$ in the Fibonacci sequence. 
@@ -240,6 +241,29 @@ Solutions to group exercises.
 \begin{frame}
 
 \begin{mygreenbox}[title=Exercise 1]
+Show by induction that $n^2-n$ is even for any natural number $n$ (that is, for $n=0,1,2,\hdots$).
+\end{mygreenbox}
+
+\vfill \vfill 
+\begin{myyellowbox}[title=Solution]
+\textbf{Induction base.} Take $n=0$.  Then $n^2-n = 0^2-0 = 0$, which is even. So $n^2-n$ is even when $n=0$.
+
+\vspace{0.5cm}
+
+\textbf{Induction step.} Now we \underline{assume} the proposition holds at index $n$ (this is called the \alert{induction hypothesis}), and we \underline{need to show} it holds at index $n+1$.  That is, we assume $n^2-n$ is even, and we need to show that $(n+1)^2-(n+1)$ is even.  We have
+%
+\begin{align*}
+(n+1)^2-(n+1) &= (n^2+2n+1) - (n+1) \\
+&= n^2+n  \\
+&= \explaintermbrace{even by induct. hypoth.}{(n^2 -n)} \; + \; \explaintermbrace{even by def. even}{(2n)}  && \scripttext{(subtract, add $n$)}	
+\end{align*}
+Hence, $n^2-n$ is even $\implies (n+1)^2-(n+1)$ is even.
+\end{myyellowbox}
+
+\end{frame}
+
+\begin{frame}
+\begin{mygreenbox}[title=Exercise 2]
  Show by induction that $2^n < n!$ for all $n \geq 4$.	
 \end{mygreenbox}
 
@@ -262,9 +286,11 @@ Hence, $2^n<n! \implies 2^{n+1}<(n+1)!$
 \end{frame}
 
 
+
+
 \begin{frame}
 
-\begin{mygreenbox}[title=Exercise 2]
+\begin{mygreenbox}[title=Exercise 3]
 Show by induction that $f_0 + \cdots + f_n = f_{n+2} -1$ in the Fibonacci sequence.	
 \end{mygreenbox}
 
@@ -290,7 +316,7 @@ Hence, if the proposition holds at index $n$, it holds at index $n+1$.
 
 \begin{frame}
 \small 
-\begin{mygreenbox}[title=Exercise 3]
+\begin{mygreenbox}[title=Exercise 4]
 Show by induction that $f_n < 2^n$ in the Fibonacci sequence. 
 \end{mygreenbox}
 

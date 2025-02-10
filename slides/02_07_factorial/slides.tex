@@ -1,0 +1,270 @@
+\documentclass[10pt]{beamer}
+
+%%%
+% PREAMBLE FOR THIS DOC 
+%%%
+%https://tex.stackexchange.com/questions/68821/is-it-possible-to-create-a-latex-preamble-header
+\usepackage{/Users/miw267/Repos/csci246_spring2025/slides/preambles/beamer_preamble_for_CSCI246}
+
+
+
+%%% TRY TO RESHOW TOC AT EACH SECTION START (with current section highlighted)
+% Reference: https://tex.stackexchange.com/questions/280436/how-to-highlight-a-specific-section-in-beamer-toc
+\newcommand\tocforsect[2]{%
+  \begingroup
+  \edef\safesection{\thesection}
+  \setcounter{section}{#1}
+  \tableofcontents[#2,currentsection]
+  \setcounter{section}{\safesection}
+  \endgroup
+}
+
+
+%%%% HERES HOW TO DO IT CORRECTLY
+% FIRST IN .STY FILE, DO
+%\usetheme[sectionpage=none]{metropolis}
+% THEN AT EACH SECTION DO
+%\begin{frame}{Outline}
+%  \tableofcontents[currentsection]	
+%\end{frame}
+
+
+
+%\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}[frame number]{}
+
+
+%%%
+% DOCUMENT
+%%%
+
+\begin{document}
+
+%\maketitle
+
+%% Title page frame
+%\begin{frame}
+%    \titlepage 
+%\end{frame}
+
+
+
+
+
+\title{02/07/2025: Factorial}
+\author{CSCI 246: Discrete Structures}
+\date{Textbook reference: Sec. 9, Scheinerman}
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+
+\begin{frame}
+\footnotesize 
+%\red{TODO}
+
+\begin{mygreenbox}[title=Graded Quiz Pickup]
+Quizzes are in the front of the room, grouped into four bins (A-G, H-L, M-R, S-Z) by last name. The quizzes are upside down with your last name on the back. Come find yours before, during, or after class.  Only turn the quiz over if it's yours.
+\end{mygreenbox} 
+\vfill 
+
+\begin{myredbox}[title=Announcements]
+
+\begin{itemize}
+\item Wednesday's reading quiz was graded out of 1 point.  45/60 students who took the quiz scored 100\%.
+\item Note: The reading quizzes are equally weighted.  The denominator is typically chosen for convenience.  
+\end{itemize}
+
+\end{myredbox}
+
+\vfill 
+
+
+\begin{myyellowbox}[title=Today's Agenda]
+\begin{itemize}
+	\item Reading and problems quiz  (25 mins)
+	\item Mini-lecture ($\approx$ 10 mins)
+%	%
+%	\begin{itemize}
+%	\footnotesize 
+%	\item Review induction 
+%	\end{itemize}
+%	%
+	\item Group exercises ($\approx$ 15 mins)
+\end{itemize}
+
+\end{myyellowbox}
+\vfill 
+
+\end{frame}
+
+
+
+
+\begin{frame}{Today's Quiz}
+\footnotesize 
+
+\alert{Reminder:} Please write your last name on the back of your page.
+\vfill 
+
+ \begin{myredbox}[title=Reading Quiz (Factorial)]
+Evaluate $0!$. Explain your answer.  (Only one explanation is needed.)
+\end{myredbox}
+
+\vfill \vfill 
+ \begin{mygreenbox}[title=Problems Quiz (Boolean Algebra \& Induction)]
+\begin{enumerate}
+	\item The \textbf{Fibonacci sequence} is the sequence given by the following recursive rules:
+	\[f_0 =0, \qquad \quad f_1 =1, \qquad \quad f_{n+2} = f_n + f_{n+1} \] Show by induction that $f_0 + \cdots + f_n = f_{n+2} -1$ in the Fibonacci sequence.
+	\item Is the following a tautology or a contradiction?
+		\[ (X \lor Y) \lor (X \lor \lnot Y) \]
+ 	    Justify your answer using either a truth table or the properties of Boolean operators. 
+ 	\item (Extra Credit.) Provide a second justification for \#2.
+ 	\item (Extra Credit.) When does $(X \implies X) \implies X$? Justify your answer.
+\end{enumerate}
+\end{mygreenbox}
+\end{frame}
+% Why no properties? Well, didn't fit on the slide. But you can leave that for extra credit, the properties are simple ones we've used a lot, and you don't have to name them. 
+
+
+\begin{frame}{Solution to \#4}
+
+\textbf{Problem.} When does $(X \implies X) \implies X$? Justify your answer.
+
+\vfill 
+\textbf{Solution.} In a group exercise on Boolean Algebra, we showed that $(X \implies X)$ is a tautology (i.e., it is always \texttt{TRUE}).  Hence, the question reduces to when does $\texttt{TRUE} \implies X$? 
+
+Now recall the truth table for implication. Looking only at the cases where the hypothesis (the proposition in the \enquote{if} statement) is true, we have
+
+\begin{table}
+\centering
+\begin{tabular}{cc|c}
+W  & X & $W \implies X$  \\
+\hline 
+T & T & T  \\
+T & F & F \\
+\end{tabular}
+\end{table}
+
+Hence, $\texttt{TRUE} \implies X$ only when $X$ is true.
+
+We conclude that $(X \implies X) \implies X$ only when $X$ is true. 
+\end{frame}
+
+
+\begin{frame}[standout]
+Review List Group Exercises.	
+\end{frame}
+
+
+
+
+\begin{frame}
+\footnotesize
+Group 1: adam.wyszynski,blake.leone,tristan.nogacki\\
+Group 2: john.fotheringham,jacob.ruiz1,samuel.mosier\\
+Group 3: connor.graville,nolan.scott1,jack.fry\\
+Group 4: jonas.zeiler,peter.buckley1,timothy.true\\
+Group 5: reid.pickert,james.brubaker,pendleton.johnston\\
+Group 6: connor.yetter,lucas.jones6,cameron.wittrock\\
+Group 7: conner.reed1,colter.huber,kaden.price\\
+Group 8: anthony.mann,joseph.triem,jacob.shepherd1\\
+Group 9: aaron.loomis,carver.wambold,peyton.trigg\\
+Group 10: zeke.baumann,jakob.kominsky,emmeri.grooms\\
+Group 11: luke.donaldson1,ethan.johnson18,derek.price4\\
+Group 12: jacob.ketola,luka.derry,samuel.hemmen\\
+Group 13: joseph.mergenthaler,connor.mizner,evan.barth\\
+Group 14: matthew.nagel,alexander.knutson,lynsey.read\\
+Group 15: michael.oswald,griffin.short,erik.moore3\\
+Group 16: justice.mosso,owen.obrien,mason.barnocky\\
+Group 17: yebin.wallace,evan.schoening,tyler.broesel\\
+Group 18: william.elder1,caitlin.hermanson,jett.girard\\
+Group 19: devon.maurer,sarah.periolat,julia.larsen\\
+Group 20: samuel.rollins,bridger.voss,jada.zorn\\
+Group 21: ryan.barrett2,carsten.brooks,micaylyn.parker\\
+Group 22: delaney.rubb,jeremiah.mackey,alexander.goetz\\
+\end{frame}
+
+
+\begin{frame}{Group exercises: Factorial}
+
+
+\begin{enumerate}
+\item Your friend Sandy has six different books of classical literature, eight different \textit{romantasy} (i.e. romance fantasy) books, and five different self-help books.
+	\begin{itemize}
+	\item[a)] In how many different ways can Sandy's books be arranged on a bookshelf?
+	\item[b)] In how many different ways can Sandy's books be arranged on the bookshelf if all books of the same category are grouped together? 
+	\end{itemize}
+\item Evaluate $\frac{100!}{98!}$ without calculating $100!$ or $98!$.
+\item Calculate the following products:
+	\begin{itemize}
+	\item[a)] $\prod_{k=1}^n \frac{k+1}{k}$.  \qquad (Reduce this product to a simpler expression.)
+	\item[b)] $\prod_{k=1}^n (2k-1)$.  \qquad  (This product has a simple English-language description.  What is it?)
+	\end{itemize}
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#1}
+
+\footnotesize 
+\textbf{Problem.} Your friend Sandy has six different books of classical literature, eight different \textit{romantasy} (i.e. romance fantasy) books, and five different self-help books.
+	\begin{itemize}
+	\item[a)] In how many different ways can Sandy's books be arranged on a bookshelf?
+	\item[b)] In how many different ways can Sandy's books be arranged on the bookshelf if all books of the same category are grouped together? 
+	\end{itemize}
+\vfill 
+
+\textbf{Solution.}
+
+	\begin{itemize}
+	\item[a)] By Theorem 8.6b from Scheinerman, there are $(6+8+5)! = 19!$ different ways to arrange the books.
+	\item[b)] By Theorem 8.6b from Scheinerman, there are $6!$ ways to arrange the classical literature books, $8!$ ways to arrange the romantasy books, and $5!$ ways to arrange the self-help books.   So by the multiplication principle, there are $6!8!5!$ ways to arrange the books, if we assume a particular ordering of the categories (e.g. classical $\rightarrow$ romantasy $\rightarrow$ self-help).  Now by Theorem 8.6b from Scheinerman, there are $3!$ ways to arrange the categories. Hence, by the multiplication principle again, there are  $3!6!8!5!$ ways to arrange the books overall.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2}
+
+
+\textbf{Problem.}   Evaluate $\frac{100!}{98!}$ without calculating $100!$ or $98!$.
+\vfill 
+
+\textbf{Solution.}
+
+\[ \df{100!}{98!} = \df{100 \cdot 99 \cdot 98!}{98!} = \df{100 \cdot 99 \cdot \cancel{98!}}{\cancel{98!}} = 100 \cdot 99 = 9900.\]
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#3}
+\footnotesize 
+
+\textbf{Problem.}  Calculate the following products:
+	\begin{itemize}
+	\item[a)] $\prod_{k=1}^n \frac{k+1}{k}$.  \qquad (Reduce this product to a simpler expression.)
+	\item[b)] $\prod_{k=1}^n (2k-1)$.  \qquad  (This product has a simple English-language description.  What is it?)
+	\end{itemize}
+\vfill 
+
+\textbf{Solution.}
+	\begin{itemize}
+	\item[a)] 
+	\begin{align*}
+	\prod_{k=1}^n \frac{k+1}{k} &= \frac{2}{1} \cdot \frac{3}{2} \cdots \frac{n}{n-1} \cdot \frac{n+1}{n} \\
+	&= \frac{\cancel{2}}{1} \cdot \frac{\cancel{3}}{\cancel{2}} \cdots \frac{\cancel{n}}{\cancel{n-1}} \cdot \frac{n+1}{\cancel{n}} \\
+	&= n+1
+	\end{align*}
+	\item[b)] 
+	\begin{align*}
+	\prod_{k=1}^n (2k-1) &= (2 \cdot 1 -1) \cdot (2 \cdot 2 -1) \cdot (2 \cdot 3 -1) \cdots  (2 \cdot n -1) \\
+	&= 1 \cdot 3 \cdot 5 \cdots 2n-1
+	\end{align*}
+	%
+	This is the product the first $n$ odd natural numbers. (The $k$-th factor is the $k$-th odd natural number.)
+	\end{itemize}
+
+\end{frame}
+
+\end{document}

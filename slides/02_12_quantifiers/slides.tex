@@ -285,7 +285,7 @@ Group 21: william.elder1,peyton.trigg,samuel.rollins\\
 Group 22: jeremiah.mackey,julia.larsen,owen.obrien\\\end{frame}
 
 
-\begin{frame}{Group exercises: Quantifiers}
+\begin{frame}{Group Exercises: Quantifiers}
 
 \footnotesize 
 \begin{minipage}{0.56\textwidth}
@@ -328,6 +328,64 @@ Group 22: jeremiah.mackey,julia.larsen,owen.obrien\\\end{frame}
 
 \end{frame}
 
+\begin{frame}{Solutions to Group Exercises \#1}
+
+ Label each sentence below about the integers as true or false. 
+    \begin{itemize}
+        \item[a.] $\forall x, \forall y, x+y=0.$  \red{False.} (Counter-example: $x=1, y=1$.)
+        \item[b.] $\forall x, \exists y: x+y=0.$ \forestgreen{True.} (Set $y=-x$.) 
+        \item[c.] $\exists x: \forall y, x+y=0.$  \red{False.} (Counter-example: If $x=0$, set $y=1$. If $x \neq 0$, set $y=0$.)
+        \item[d.] $\exists x, \exists y: x+y=0.$ \forestgreen{True.}  (Set $x=1,y=-1$.)
+        \item[e.] $\forall x, \forall y, xy=0.$ \red{False.}  (Counterexample: set $x=y=1$.)
+        \item[f.] $\forall x, \exists y: xy=0.$ \forestgreen{True.} (Set $y=0$.)
+        \item[g.] $\exists x: \forall y, xy=0.$ \forestgreen{True.} (Set $x=0$.)
+        \item[h.] $\exists x, \exists y: xy=0.$ \forestgreen{True.} (Set $x=y=0$.)
+    \end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}{Solutions to Group Exercises \#2}
+
+The notation $\exists!$ can be read "there is a unique." Label each sentence below true or false.
+
+    \begin{itemize}
+        \item[a.] $\exists! x \in \mathbb{N}: x^2=4.$  \forestgreen{True.} ($x=2$ is the only solution to the equation in the natural numbers.)
+        \item[b.] $\exists! x \in \mathbb{Z}: x^2=4.$  \red{False.}  ($x=2$ and $x=-2$ are two different integers which solve the equation.)
+        \item[c.] $\exists! x \in \mathbb{N}: x^2=3.$  \red{False.}  (There is no solution to the equation in the set of natural numbers.)
+        \item[d.] $\exists! x \in \mathbb{Z}: \forall y \in \mathbb{Z}, xy=x.$  \forestgreen{True.} ($x=0$ is the only solution to the equation in the integers.)
+        \item[e.] $\exists! x \in \mathbb{Z}: \forall y \in \mathbb{Z}, xy=y.$ \forestgreen{True.} ($x=1$ is the only solution to the equation in the integers.)
+    \end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Solutions to Group Exercises \#3 a-d}
+\small 
+For each sentence below, write the negation of the sentence, but place the $\lnot$ symbol as far to the right as possible. Then rewrite the negation in English.  
+    \begin{itemize}    
+        \item[a.] $\forall x \in \mathbb{Z}, x \text{ is odd.} $  \alert{Solution: $\exists x \in \mathbb{Z}: \lnot (x \text{ is odd})$.  In English: "There is an integer which is not odd." Alternatively, we could write the negated proposition as $\exists x \in \mathbb{Z}: (x \text{ is even})$.  In English: "There is an integer which is even."  Note: the negated proposition is}\,\forestgreen{True.} 
+        \item[b.] $\forall x \in \mathbb{Z}, x<0.$ \alert{Solution: $\exists x \in \mathbb{Z}: \lnot (x<0.)$.   In English: "There is an integer which is not less than zero."  Alternatively, we could write $\exists x \in \mathbb{Z}: x \geq 0$. In English: "There is an integer which is greater than or equal to zero."   Note: the negated proposition is}\,\forestgreen{True.} 
+        \item[c.] $\exists x \in \mathbb{Z}: x=x+1.$ \alert{Solution: $\forall x \in \mathbb{Z}: \lnot (x=x+1)$. That is, $\forall x \in \mathbb{Z}: (x \neq x+1)$. In English: "No integer equals one plus itself." Note: the negated proposition is}\,\forestgreen{True.} 
+        \item[d.] $\exists x \in \mathbb{N}: x>10.$ \alert{Solution: $\forall x \in \mathbb{N}: \lnot (x>10)$. Alternatively, $\forall x \in \mathbb{N}: x \leq 10.$ In English: "Each natural number is less than or equal to 10."  Note: the negated proposition is}\, \red{False.} 
+        \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Solutions to Group Exercises \#3 e-h}
+\small 
+For each sentence below, write the negation of the sentence, but place the $\lnot$ symbol as far to the right as possible. Then rewrite the negation in English. 
+    \begin{itemize}
+     \item[e.] $\forall x \in \mathbb{N}, x+x=2x.$ \alert{Solution: $\exists x \in \mathbb{N}: \lnot (x+x=2x)$.  That is, $\exists x \in \mathbb{N}: x+x \neq 2x)$.  In English: "There is a natural number such that the sum of the number with itself does not equal double itself."  Note: the negated proposition is}\, \red{False.} 
+        \item[f.] $\exists x \in \mathbb{Z}: \forall y \in \mathbb{Z}, x>y.$ \alert{Solution: $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} : \lnot (x>y)$.   That is, $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} : x\leq y$ In English: "For all integers, there is another integer which is at least as large as it."  Note: the negated proposition is}\, \forestgreen{True}.  
+        \item[g.]  $\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z}, x=y.$ \alert{Solution: $\exists x \in \mathbb{Z}, \exists y \in \mathbb{Z} : \lnot (x=y)$.   That is, $\exists x \in \mathbb{Z}, \exists y \in \mathbb{Z} : x\neq y$. In English: "There are two integers which do not equal each other."  Note: the negated proposition is}\, \forestgreen{True}.  
+        \item[h.] $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z}: x+y=0.$ \alert{Solution: $\exists x \in \mathbb{Z}: \forall y \in \mathbb{Z} : \lnot (x+y=0)$.   That is, $\exists x \in \mathbb{Z}: \forall y \in \mathbb{Z} : (x+y \neq 0)$.  In English: "There is an integer such that the sum with all other integers does not equal zero."  Note: the negated proposition is}\, \red{False}.  
+
+        \end{itemize}
+\end{frame}
 
 
 \end{document}

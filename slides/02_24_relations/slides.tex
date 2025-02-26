@@ -269,12 +269,214 @@ Let $A = \mathbb{Z}$ and $R$ be the $\leq$ relation.  A picture of the relation 
 \end{figure}
 
 \end{mygreenbox}
- 
+ \end{frame}
 
+\begin{frame}[standout]
+Properties of relations via pictures
+\end{frame}
+
+
+
+\begin{frame}
+\footnotesize 
+
+\begin{myyellowbox}[title=Reflexivity]
+\begin{itemize}
+	\item A relation is \textbf{reflexive} if every element has a self-loop. 
+	\item A relation is \textbf{not reflexive} if at least one element has no self-loop.
+\end{itemize}
+
+\end{myyellowbox}
+
+\vfill 
+\begin{mygreenbox}[title=Example]
+\begin{table}[H]
+\centering 	
+\begin{tabular}{cc}
+\textbf{Reflexive} & \textbf{Not reflexive}  \\
+$\forall \; x \in A,  xRx$	& $\exists \; x \in A :  x\cancel{R}x$\\
+\begin{tikzpicture}
+
+% Nodes in a vertical line
+\node[latent] (1) at (0, 4) {a};
+\node[latent] (2) at (0, 3) {b};
+\node[latent] (3) at (0, 2) {c};
+\node[latent] (4) at (0, 1) {d};
+
+
+% Self loops
+\path[->, >=stealth, loop left, red] (1) edge (1);
+\path[->, >=stealth, loop left, red] (2) edge (2);
+\path[->, >=stealth, loop left, red] (3) edge (3);
+\path[->, >=stealth, loop left, red] (4) edge (4);
+
+% Curved edges
+\path[->, >=stealth, bend left=60] (1) edge (2);
+\path[->, >=stealth, bend left=60] (1) edge (4);
+\path[->, >=stealth, bend left=60] (2) edge (4);
+\end{tikzpicture} 
+& 
+\begin{tikzpicture}
+
+% Nodes in a vertical line
+\node[latent] (1) at (0, 4) {a};
+\node[latent] (2) at (0, 3) {b};
+\node[latent] (3) at (0, 2) {c};
+\node[latent] (4) at (0, 1) {d};
+
+% Curved edges
+\path[->, >=stealth, bend left=60] (1) edge (2);
+\path[->, >=stealth, bend left=60] (1) edge (4);
+\path[->, >=stealth, bend left=60] (2) edge (4);
+
+% Self loops
+\path[->, >=stealth, loop left, red] (1) edge (1);
+\path[->, >=stealth, loop left, red] (3) edge (3);
+\end{tikzpicture} 
+
+\end{tabular}
+\end{table}
+
+When one or more red connection drops out, the relation loses reflexivity.
+\end{mygreenbox}
 
 \end{frame}
 
 
+\begin{frame}
+\footnotesize 
+
+\begin{myyellowbox}[title=Symmetric]
+\begin{itemize}
+	\item A relation is \textbf{symmetric} if any connection to a distinct element is paired with a connection in the opposite direction.  
+	\item A relation is \textbf{not symmetric} if at least one connection to a distinct element lacks a connection in the opposite direction.
+\end{itemize}
+
+\end{myyellowbox}
+
+\vfill 
+\begin{mygreenbox}[title=Example]
+\begin{table}[H]
+\centering 	
+\begin{tabular}{cc}
+\textbf{Symmetric} & \textbf{Not symmetric}  \\
+$xRy \implies yRx$	& $\exists \; x,y \in A :  xRy$ but  $y\cancel{R}x$\\
+\begin{tikzpicture}
+
+% Nodes in a vertical line
+\node[latent] (1) at (0, 4) {a};
+\node[latent] (2) at (0, 3) {b};
+\node[latent] (3) at (0, 2) {c};
+\node[latent] (4) at (0, 1) {d};
+
+
+% Self loops
+\path[->, >=stealth, loop left] (1) edge (1);
+\path[->, >=stealth, loop left] (3) edge (3);
+
+% Curved edges
+\path[->, >=stealth, bend left=60] (1) edge (2);
+\path[->, >=stealth, bend left=60] (2) edge (1);
+\path[->, >=stealth, bend left=60] (2) edge (3);
+\path[->, >=stealth, bend left=60] (3) edge (2);
+\path[->, >=stealth, bend left=60] (1) edge (4);
+\path[->, >=stealth, bend left=60] (4) edge (1);
+\end{tikzpicture} 
+& 
+\begin{tikzpicture}
+
+% Nodes in a vertical line
+\node[latent] (1) at (0, 4) {a};
+\node[latent] (2) at (0, 3) {b};
+\node[latent] (3) at (0, 2) {c};
+\node[latent] (4) at (0, 1) {d};
+
+% Curved edges
+\path[->, >=stealth, bend left=60] (1) edge (2);
+\path[->, >=stealth, bend left=60] (2) edge (1);
+\path[->, >=stealth, bend left=60] (2) edge (3);
+\path[->, >=stealth, bend left=60] (3) edge (2);
+\path[->, >=stealth, bend left=60] (1) edge (4);
+%\path[->, >=stealth, bend left=60] (4) edge (1);
+
+
+% Self loops
+\path[->, >=stealth, loop left] (1) edge (1);
+\path[->, >=stealth, loop left] (3) edge (3);
+\end{tikzpicture} 
+
+\end{tabular}
+\end{table}
+
+When we dropped the connection from $d$ to $a$, the relationship lost symmetry.
+
+\end{mygreenbox}
+
+\end{frame}
+
+
+\begin{frame}
+\footnotesize 
+
+\begin{myyellowbox}[title=Transitivity]
+\begin{itemize}
+	\item A relation is \textbf{transitive} if any two-hop trip can also be done in a single-hop.  
+	\item A relation is \textbf{not transitive} if there is at least one two-hop trip that cannot be done in a single hop.
+\end{itemize}
+
+\end{myyellowbox}
+
+\vfill 
+\begin{mygreenbox}[title=Example]
+\begin{table}[H]
+\centering 	
+\begin{tabular}{cc}
+\textbf{Transitive} & \textbf{Not transitive}  \\
+$xRy, yRz \implies xRz$	& $\exists \; x,y,z \in A :  xRy$ and $yRz$ but  $x\cancel{R}z$\\
+\begin{tikzpicture}
+
+% Nodes in a vertical line
+\node[latent] (1) at (0, 4) {a};
+\node[latent] (2) at (0, 3) {b};
+\node[latent] (3) at (0, 2) {c};
+\node[latent] (4) at (0, 1) {d};
+
+
+% Self loops
+\path[->, >=stealth, loop left] (4) edge (4);
+
+% Curved edges
+\path[->, >=stealth, bend left=60] (1) edge (2);
+\path[->, >=stealth, bend left=60] (2) edge (3);
+\path[->, >=stealth, bend left=60] (1) edge (3);
+\end{tikzpicture} 
+& 
+\begin{tikzpicture}
+
+% Nodes in a vertical line
+\node[latent] (1) at (0, 4) {a};
+\node[latent] (2) at (0, 3) {b};
+\node[latent] (3) at (0, 2) {c};
+\node[latent] (4) at (0, 1) {d};
+
+% Self loops
+\path[->, >=stealth, loop left] (4) edge (4);
+
+% Curved edges
+\path[->, >=stealth, bend left=60] (1) edge (2);
+\path[->, >=stealth, bend left=60] (2) edge (3);
+%\path[->, >=stealth, bend left=60] (1) edge (3);
+
+\end{tikzpicture} 
+
+\end{tabular}
+\end{table}
+
+When we dropped the connection from $a$ to $c$, the relationship lost transitivity.
+
+\end{mygreenbox}
+
+\end{frame}
 
 \begin{frame}[standout]
 Group exercises

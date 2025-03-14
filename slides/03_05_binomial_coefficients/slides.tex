@@ -444,6 +444,105 @@ zeke.baumann: 7 \\\end{column}
 \end{frame}
 
 
+\begin{frame}{Solution to group exercise \#1a}
+\footnotesize
 
+ There are 15 2-elements subsets of $\set{1,2,3,4,5,6}$.  We show this in 3 different ways. 
+\begin{enumerate} 
+	\item Writing out all the subsets explicitly, we have
+%
+\begin{align*}
+\set{1,2}, \set{1,3}, \set{1,4}, \set{1,5}, \set{1,6} \\
+\set{2,3}, \set{2,4}, \set{2,5}, \set{2,6} \\
+\set{3,4}, \set{3,5}, \set{3,6} \\
+\set{4,5}, \set{4,6} \\
+\set{5,6} 
+\end{align*}
+%
+\item The number of subsets of size 2 is given by Scheinerman Prop. 17.5 as 
+\[ \binom{n}{2} = \sum_{k=1}^{n-1} k. \]
+In this case, since $n=3$, we have $ \binom{6}{2} = 1+2+3=4+5 = 15.$
+(Note that the layout of the solution to \#1 suggests why the formula is true.) 
+\item The computational formula for $\binom{n}{k}$ (Scheinerman Theorem 17.12) is 
+\[ \binom{n}{k}  = \frac{n!}{k! (n-k)!}\] 
+Substituting $n=6$ and $k=2$, we find
+%
+\begin{align*}
+\binom{6}{2} = \frac{6!}{2!4!} = \frac{6 \cdot 5}{2 \cdot 1} = 15. 
+\end{align*}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#1b}
+\footnotesize
+
+ There are 15 4-elements subsets of $\set{1,2,3,4,5,6}$.  We show this in 3 different ways. 
+\begin{enumerate} 
+	\item Writing out all the subsets explicitly, we have
+%
+\begin{align*}
+\set{3,4,5,6}, \set{2,4,5,6}, \set{2,3,5,6}, \set{2,3,4,6}, \set{2,3,4,5} \\
+\set{1,4,5,6}, \set{1,3,5,6}, \set{1,3,4,6}, \set{1,3,4,5} \\
+\set{1,2,5,6}, \set{1,2,4,6}, \set{1,2,4,5} \\
+\set{1,2,3,6}, \set{1,2,3,5} \\
+\set{1,2,3,4} 
+\end{align*}
+%
+\item Scheinerman Prop. 17.7  says that for $n,k \in \mathbb{N}$ with $0 \leq k \leq n$, we have  
+\[ \binom{n}{k} = \binom{n}{n-k}\]
+Hence  $\binom{6}{4} = \binom{6}{2}$. Since we already know from group exercise \#1a that $\binom{6}{2}=15$, we must have  $\binom{6}{4}=15$. (Indeed, the enumeration of subsets above was obtained by taking the complement of the enumerated subsets from the previous slide.) 
+\item The computational formula for $\binom{n}{k}$ (Scheinerman Theorem 17.12) is 
+\[ \binom{n}{k}  = \frac{n!}{k! (n-k)!}\] 
+Substituting $n=6$ and $k=4$, we find
+%
+\begin{align*}
+\binom{6}{2} = \frac{6!}{4!2!} = \frac{6 \cdot 5}{2 \cdot 1} = 15. 
+\end{align*}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#2}
+\textbf{Problem.} Scheinerman Prop 17.7 says: Let $n,k \in \mathbb{N}$ with $0 \leq k \leq n$.  Then 
+		\[ \binom{n}{k} = \binom{n}{n-k}. \]
+	Prove this proposition using Scheinerman  Theorem 17.12. 
+\vfill 
+\textbf{Solution.} Scheinerman  Theorem 17.12 says
+		\[ \binom{n}{k} = \frac{n!}{k!(n-k)!}. \] 
+	If we apply Scheinerman  Theorem 17.12 to the problem of finding subsets of size $n-k$ from a set of size $n$, we have
+	\[ \binom{n}{n-k} = \frac{n!}{(n-k)!\big(n-(n-k) \big)!} = \frac{n!}{(n-k)!k!} = \frac{n!}{k!(n-k)!}.  \]
+Hence,
+\[ \binom{n}{k} = \binom{n}{n-k}. \]
+			
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#3}
+\textbf{Problem.}
+Fifty runners compete in a 5K race.  How many different outcomes are possible? Find different answers according to the context. (a) We want to know in what place every runner finished.  (b) The race is a qualifying race, and we just want to pick the ten fastest runners. (c) The race is an Olympic final event, and we care only about who gets the gold, silver, and bronze medals.
+
+\vfill 
+\textbf{Solution.}
+\begin{itemize}
+\item[a.] $50!$. Here we want the number of permutations of the 50 runners; that is the number of different ways to order them. 
+\item[b.] $\binom{50}{10}$. Here we want to find the number of subsets of size 10 from a pool of size 50.
+\item[c.] $\binom{50}{3}$. Here we want to find the number of subsets of size 3 from a pool of size 50.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#4}
+\small 
+\textbf{Problem.}
+At a large community festival, there’s a group of 30 volunteers — 8 from Missoula and 22 from other towns. The organizers want to form a five-person team to plan the main event. However, they insist that at least one person from Missoula must be on the team to make sure the town’s voice is heard. How many five-person teams can be formed containing at least one person from Missoula?
+
+\vfill 
+\textbf{Solution.}  Let $T$ be the total number of five-person teams.  Let $M$ be the number of five-person teams with at least one person from Missoula.   Let $N$ be the number of five-person teams can with no people from Missoula.  Then
+\[ M = T - N. \]
+
+Now $T=\binom{30}{5}$ by definition of the binomial coefficient. (Here we can choose our five-person team from any of the 30 volunteers). Similarly,  $N=\binom{22}{5}$. (Here we must choose our five-person team solely from the 22 volunteers aren't from Missoula). Hence,
+\[M = \binom{30}{5} - \binom{22}{5}. \] 
+
+
+\end{frame}
 
 \end{document}

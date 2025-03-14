@@ -520,5 +520,114 @@ zeke.baumann: 13 \\\end{column}
 
 
 
+\begin{frame}{Solution to group exercise \#1}
+\textbf{Problem.} Let $(S,P)$ be the probability space in which $S=\set{1,2,3,4}$. Suppose $P(1) =x, P(2) = 2x, P(3) = 3x,$ and  $P(4)=4x$.  Find $x$.
+\vfill 
+\textbf{Solution.} 
+
+\begin{align*}
+\sum_{s \in S} P(s) &= 1 && \scripttext{(Def. probability space)} \\
+\implies P(1) + P(2) + P(3) + P(4) &=1	 && \scripttext{(Expand sum)} \\
+\implies x + 2x + 3x + 4x &=1	 && \scripttext{(By assumption)} \\
+\implies 10x &=1	 \\
+\implies x &= \frac{1}{10}
+\end{align*}
+
+\vfill 
+\textbf{Remark.} 
+
+Therefore,
+\[ P(1) = \frac{1}{10}, \quad  P(2) = \frac{2}{10}, \quad  P(3) = \frac{3}{10}, \quad  P(4) = \frac{4}{10}.\]
+
+
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2}
+\textbf{Problem.}  Suppose that that $(S,P_1)$  and $(S,P_2)$ are two probability spaces that have the same set of outcomes, $S$.   Is it possible that each outcome is less likely in the first probability space than it is in the second?  That is, can we have $\forall s \in S, P_1(s) < P_2(s)$?
+\vfill 
+\textbf{Solution.}
+No. By definition of a (finite) probability space, we have
+%
+\begin{align}
+\sum_{s \in S} P_1(s) = \sum_{s \in S} P_2(s) = 1 
+\label{eqn:prob_space_sums_to_one} 
+\end{align}
+%
+But since $P_1(s) < P_2(s)$ for all $s$, we have
+ %
+\begin{align}
+\sum_{s \in S} P_1(s) < \sum_{s \in S} P_2(s) 
+\label{eqn:P2_dominates_P1} 
+\end{align}
+ %
+Substituting \Eqref{eqn:prob_space_sums_to_one}  into \Eqref{eqn:P2_dominates_P1} , we obtain
+\[ 1 < 1 \]
+which is a contradiction.
+
+   
+\end{frame}
+
+
+\begin{frame}{Remark on group exercise \#2}
+\footnotesize  
+\begin{figure}
+\includegraphics[width=\textwidth]{images/proof_by_contradiction.png}
+\caption{\textit{A template for proof by contradiction.} Source: Scheinerman Sec. 20 (pp. 121)}	
+\end{figure}
+%
+\pause 
+\vfill 
+\begin{myredbox}[title=Remark]
+ This is an example of proof by contradiction (Scheinerman Sec. 20).
+
+% The solution to group exercise \#2 is an example of Proof by Contradiction.    
+
+\begin{table}
+\centering 	
+\begin{tabularx}{\textwidth}{XX}
+Proposition A: 	& $(S,P_1)$  and $(S,P_2)$ are two probability spaces that have the same set of outcomes, $S$.  \\
+Proposition B: & $\forall s \in S, P_1(s) < P_2(s)$
+\end{tabularx}
+\end{table}
+
+ We prove $A \implies (\texttt{not} \; B)$ by assuming $A$ and $B$ and obtaining a contradiction.	
+\end{myredbox}
+\end{frame}
+
+
+
+\begin{frame}{Remark on group exercise \#3}
+\footnotesize  
+The areas of the circles are given by
+%
+\begin{align*}
+C_1 &= \pi 1^2 = \pi   &  C_3 &= \pi 3^2 = 9 \pi  \\
+C_2 &= \pi 2^2 = 4 \pi   &  C_4 &= \pi 4^2 = 16 \pi  
+\end{align*}
+%
+Hence, the areas of the annular regions are given by 
+%
+\begin{align*}
+A_1 &= C_1 = \pi  & A_3 &= C_3 - C_2 = 5 \pi  \\
+A_2 &= C_2 - C_1 = 3 \pi  & A_4 &= C_4 - C_3 = 7 \pi  
+\end{align*}
+%
+By assumption, the probability of the dart landing in each annular region is
+\[ P(1) \propto A_1, \quad P(2) \propto A_2, \quad P(3) \propto A_3, \quad P(4) \propto A_4,\] 
+where $\propto$ means \enquote{is proportional to}.  In other words,
+\[ P(1) = \frac{A_1}{Z}, \quad P(2) = \frac{A_2}{Z}, \quad P(3) = \frac{A_3}{Z}, \quad P(4) = \frac{A_4}{Z},\]
+where $Z$ is some unknown \enquote{normalizing constant}.  We solve for $Z$ by using that the probabilities over all outcomes must sum to unity: 
+%
+\begin{align*}
+\sum_{s \in S} P(s) = 1  \implies \frac{A_1}{Z} + \frac{A_2}{Z} + \frac{A_3}{Z} + \frac{A_4}{Z}  = 1 \\
+\implies A_1 + A_2 + A_3 + A_4 = Z  \implies Z = 16 \pi. 
+\end{align*} 
+%
+Hence
+\[ P(1) = \frac{1}{16}, \quad P(2) = \frac{3}{16}, \quad P(3) = \frac{5}{16}, \quad P(4) = \frac{7}{16}.\]
+\end{frame}
+
 
 \end{document}

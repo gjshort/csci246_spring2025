@@ -428,6 +428,74 @@ zeke.baumann: 9 \\\end{column}
 \end{frame}
 
 
+\begin{frame}{Solution to group exercise \#1}
+\footnotesize
+\begin{itemize}
+\item[a.] \textit{How many students did not take any of the three courses?} Since 50 students are in the class and 47 took at least one course, the number of students who didn't take any course is
+\[50-47=3. \]
+\item[b.] \textit{ How many students took all three courses?} Let $P$ be the set of students who took precalculus, $C$ be the the set of students who took calculus, and $Y$ be the set of students who took Python.   Then 
+%
+\[ 
+|P\cup C \cup Y| = |P| + |C| + |Y| - |P \cap C| - |P \cap Y| - |C \cap Y| + |P \cap C \cap Y| \qquad \scripttext{(Incl.-Excl.)}  \]
+\[ \implies 47 = 30 + 18 + 26 - 9 - 16 -8 + |P \cap C \cap Y|	 \qquad \scripttext{(Substitution)}\]
+Solving for $|P \cap C \cap Y|$ gives $|P \cap C \cap Y|	=6$.	
+\item[c.] \textit{How many students took precalculus and calculus but not Python?} We fill in the diagram below (called a Venn diagram). It is easiest to start in the middle and work outward.
+
+\begin{figure}
+\includegraphics[width=.4\textwidth]{images/epps_inclusion_exclusion_venn_diagram.png}	
+\end{figure}
+ 
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2}
+\footnotesize 
+\textbf{Problem.} Of the integers between 1 and 1,000,000 (inclusive), how many are \textit{not} divisible by 2, 3, or 5?
+\vfill 
+\textbf{Solution.}  Let $S=\set{x \in \mathbb{Z} : 1 \leq x \leq 1,000,000}$.   Let $A$ be the subset of numbers in $S$ that are divisible by 2, $B$ be the subset of numbers in $S$ that are divisible by 3, and $C$ be the subset of numbers in $S$ that are divisible by 5.  We want to find $|S| - |A \cup B \cup C| = 1,000,000 - |A \cup B \cup C| $.  By inclusion/exclusion,
+\[ 
+|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|. \]
+
+By skip-counting, we calculate each set size as
+\begin{align*}
+|A| &= \left\lfloor \frac{1,000,000}{2} \right\rfloor = 500,000, &  |A \cap B| &= \left\lfloor \frac{1,000,000}{6} \right\rfloor =16,666\\
+|B| &= \left\lfloor \frac{1,000,000}{3} \right\rfloor = 333,333, &  |A \cap C| &= \left\lfloor \frac{1,000,000}{10} \right\rfloor =10,000\\
+|C| &= \left\lfloor \frac{1,000,000}{5} \right\rfloor = 200,000, &  |B \cap C| &= \left\lfloor \frac{1,000,000}{15} \right\rfloor =66,666
+\end{align*}
+%
+\begin{align*}
+|A \cap B \cap C| = \left\lfloor \frac{1,000,000}{30} \right\rfloor =33,333	
+\end{align*}
+%
+where $\left\lfloor \cdot  \right\rfloor$ is the floor operator:
+\[ \left\lfloor  x \right\rfloor = \text {the greatest integer $n$ such that $n \leq x$} \]
+Substituting into the inclusion/exclusion formula, we find $|A \cup B \cup C|=733,334$, and so the solution is $1,000,000 - 733,334 = 266,666.$
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#3}
+\footnotesize 
+\textbf{Problem.} The squares of a 4 $\times$ 4 checkerboard are colored black or white.  Use inclusion-exclusion to find the number of ways the checkerboard can be colored so that no row is entirely one color.
+\vfill
+\textbf{Solution.}
+Let $B_i$ be the set of colorings in which row $i$ is entirely of one color. The set of \enquote{bad} colorings is $B_1 \cup \cdots \cup B_4$.  The number of \enquote{good} colorings is $2^{16} - |B_1 \cup \cdots \cup B_4|$.  Now by inclusion-exclusion,
+%
+\[
+|B_1 \cup \cdots \cup B_4| = \sum_i |B_i| - \sum_{i<j} |B_i \cap B_j| + \sum_{i <j <k} |B_i \cap B_j \cap B_k| - |B_1 \cap B_2 \cap B_3 \cap B_4|.
+\]
+%
+\begin{align*}
+|B_1 \cup \cdots \cup B_4| &= \binom{4}{1} \cdot 2^1 \cdot 2^{12} - \binom{4}{2} \cdot 2^2 \cdot 2^{8} \\
+& \quad + \binom{4}{3} \cdot 2^3 \cdot 2^{4} -  \binom{4}{4} \cdot 2^4 \cdot 2^0\\	
+\end{align*}
+%
+Each summand above is the product of three terms.  The first term gives the number of subsets in the intersection, the second term gives the number of ways to assign a uniform color to all squares in each of the designated rows, and the third term gives the number of ways to assign colors to squares in other rows.
+ %
+\vfill 
+ \textbf{Remark.} In simplified form, the solution is $14^4$, as can be verified either with a calculator or via an application of the Binomial Theorem [interpreting the right-hand-side of the equation above as the binomial expansion of $(16-2)^4$.] 
+  
+ \end{frame}
 
 
 \end{document}

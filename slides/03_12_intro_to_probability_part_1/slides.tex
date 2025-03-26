@@ -286,7 +286,13 @@ An \textbf{event} is a subset of a sample space.
 \vfill \pause
 \begin{mygreenbox}[title=Definition]
 Let $(S,P)$ be a probability space.  Then an \textbf{event} $E$ is a subset of $S$ (i.e. $E \subseteq S$).  The probability of an event $E$, denoted $P(E)$ is
-\[ P(E) = \sum_{s \in E} P(s) \]
+%
+\begin{align}
+P(E) = \sum_{s \in E} P(s) 
+\label{eqn:probability_of_event}
+\end{align}
+
+
 \end{mygreenbox}
 \vfill \pause
 
@@ -305,7 +311,7 @@ In the coin example, what is the event of observing one head?  What is its proba
 
 
 \begin{frame}
-\begin{mygreenbox}[title=Equally Likely Probability Formula]
+\begin{mygreenbox}[title=\text{Proposition: Equally Likely Probability Formula}]
 If $(P,S)$ is a probability space in which all outcomes are equally likely and E is an event in $S$, then the probability of $E$ is
 %
 \begin{align*}
@@ -313,10 +319,14 @@ P(E) = \frac{|E|}{|S|} = \frac{\text{the number of outcomes in } E }{\text{the n
 \end{align*}
 \end{mygreenbox}
 %\vfill 
-%In the above, we have used the following notation
-%\vfill 
-%\begin{myredbox}[title=Notation]
-%For any finite set $A$, $N(A)$ denotes the number of elements in $A$.
+%\pause 
+%
+%\begin{myredbox}[title=Proof]
+%\pause 
+%\small 
+%By the definition of the probability of an event in \Eqref{eqn:probability_of_event}, we have 
+%\[ P(E) = \sum_{s \in E} P(s)  \]
+%But if all events are equally likely, then $P(s) = c$ for all outcomes $s \in S$.  Hence
 %\end{myredbox}
 
 \end{frame}

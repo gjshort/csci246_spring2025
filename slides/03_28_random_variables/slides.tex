@@ -518,6 +518,139 @@ zeke.baumann: 20 \\\end{column}
 
 \end{frame}
 
+\begin{frame}{Solution to group exercise \#1}
+
+\textbf{Problem.} A fair coin is flipped three times. This is modeled by a probability space $(S,P)$ where $S$ contains the eight lists from $(H,H,H)$ to $(T,T,T)$, all with probability $\frac{1}{8}$.  Let $X$ denote the number of times we see TAILS.
+	\begin{itemize} \footnotesize 
+	\item[a.] Write $X$ explicitly as a function defined on $S$.
+	\item[b.] Write the event \enquote{X is odd} as a set.
+	\item[c.] Calculate $P(\text{X is odd})$.
+	\end{itemize}
+\vfill 
+
+\textbf{Solution.} 
+	\begin{itemize} \small
+	\item[a.]  The function $X: S \to \mathbb{N}$ is given by
+	\[\begin{array}{r@{}lcr@{}l}
+	X(HHH) &= 0 &\qquad & X(THH) &=1 \\
+	X(HHT) &= 1 &\qquad & X(THT) &=2 \\
+	X(HTH) &= 1 &\qquad & X(TTH) &=2 \\
+	X(HTT) &= 2 &\qquad & X(TTT) &=3 \\
+	\end{array}\]
+	\item[b.] Let $A$ be the event \enquote{X is odd}.  Then $A=\set{HHT, HTH, THH, TTT}.$
+	\item[c.] By the equally likely probability formula,
+	\[ P(A) = \frac{|A|}{|S|}  = \frac{3}{8}. \]
+	\end{itemize}
+\vfill 
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#2}
+\footnotesize 
+\textbf{Problem.} 	A basketball player has a 75\% chance of making a free throw. During a game, the player takes 10 free throws. Model the number of free throws made as a binomial random variable.  (a) What is the probability that the player makes exactly 8 free throws? (b) What is the probability that the player makes at least 7 free throws?
+\vfill 
+
+\small 
+\textbf{Solution.} 
+Let $X$ be the number of free throws made.  By the binomial assumption, the probability that the random variable $X$ takes on the specific value $x \in \set{0,1,\hdots, 10}$ is given by
+%
+\begin{align*}
+P(X=x) &= \binom{n}{x} p^x \, (1-p)^{n-x} = \binom{10}{x} .75^x \, (.25)^{10-x} 
+\end{align*}
+%
+\vspace{-.2cm}
+\begin{itemize}\small   
+	\item[a.] By the above
+	\[P(X=8) = \binom{10}{8} .75^8\, (.25)^{2} \approx 0.28 \]
+	So there is an approximately 28\% chance that the player makes 8 of the 10 free throws.
+	\item[b.] Using similar computations as above, we can compute
+	%
+	\begin{align*}
+	P(X \geq 7) &= P(X=7) + P(X=8) + P(X=9) + P(X=10) \\
+	& \approx 0.25 + 0.28 + 0.18 + 0.05 = 0.76.
+	\end{align*}
+	\end{itemize}
+		
+\vfill 
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#3a}
+\footnotesize 
+\textbf{Problem.}  A fair coin is flipped three times. Let $X$ be the number of heads and $Y$ be the number of tails. Determine whether $X$ and $Y$ independent. First provide the intuition, and then provide a mathematical argument.  
+\vfill 
+\vspace{-.2cm}
+\textbf{Solution.}
+\vspace{-.2cm}
+\begin{itemize}
+\item \textit{Intuition.} If $X$ is the number of heads, then we \alert{know} the number of tails $Y$ \alert{exactly} (since $Y=3-X$).  So these random variables can't be independent. In fact, they are as dependent as two random variables can possibly be, since they are deterministically related.
+\vfill 
+\item \textit{Mathematical argument.} By Def 33.6 in Scheinerman, $X$ and $Y$ are independent if for all $x,y$
+
+\[P(X=x \text{ and } Y=y) = P(X=x) \, P(Y=y). \]
+By the above, if $x=0$, then we know $y=3$.  So let's consider $x=0$ and $y \neq 3$. In particular, let's assume $x=0$ and $y=0$.  Then 
+\[ P(X=0 \text{ and } Y=0) = 0 \]
+(since it's impossible for 3 coin tosses to give 0 heads and 0 tails).  However, by the equally likely probability formula,
+\[P(X=0) = \frac{1}{8} \qquad \text{and} \qquad  P(Y=0) = \frac{1}{8}.\]
+Hence, we have found values $x$ and $y$ such that
+\[P(X=x \text{ and } Y=y) \neq P(X=x) \, P(Y=y). \]
+Hence, $X$ and $Y$ are not independent.
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#3b}
+\small
+\textbf{Problem.} A card is drawn at random from a standard deck of 52 cards. Let $X$ be the rank of the card (from 2 to ace) and $Y$ be the suit of the card. Determine whether $X$ and $Y$ independent. First provide the intuition, and then provide a mathematical argument.  
+\vfill 
+\vspace{-.2cm}
+\textbf{Solution.}
+\vspace{-.2cm}
+\begin{itemize}
+\item \textit{Intuition.} These random variables should be independent because knowing the suit of the card doesn't provide any information about the rank.  For instance, knowing your card is a $\heartsuit$ doesn't change the probability that it is a King.
+\vfill 
+\item \textit{Mathematical argument.} By Def 33.6 in Scheinerman, $X$ and $Y$ are independent if for all $x,y$
+
+\[P(X=x \text{ and } Y=y) = P(X=x) \, P(Y=y). \]
+Let $x$ be any value in the set $\set{2,3,4,5,6,7,8,9,10,J,Q,K,A}$.  Let $y$ be any value in $\set{\heartsuit, \diamondsuit, \spadesuit, \clubsuit}$. Note that $P(X=x) = \frac{1}{13}$ and $P(Y=y) = \frac{1}{4}$.  Finally,
+%
+\begin{align*}
+P(X=x \land Y=b) = \frac{1}{52} = 	\frac{1}{13} \times \frac{1}{4} = P(X=x) \times P(Y=b)
+\end{align*}
+%
+Hence, $X$ and $Y$ are independent random variables.
+
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#3c}
+\small 
+\textbf{Problem.} Two cards are drawn at random (without replacement) from a standard deck of 52 cards. Let $X$ be the rank of the first card and $Y$ be the rank of the second card. Determine whether $X$ and $Y$ independent. First provide the intuition, and then provide a mathematical argument.  
+\vfill 
+\vspace{-.2cm}
+\textbf{Solution.}
+\vspace{-.2cm}
+\begin{itemize}
+\item \textit{Intuition.} These random variables should be dependent because knowing the rank of the first card provides information about the probabilities of getting various ranks for the second card.  For instance, if your first card is a king, then there is a lower probability you'll get a king on the second card (since there's one fewer king in the deck).
+\vfill 
+\item \textit{Mathematical argument.}  By the equally likely probability formula,
+\[P(X=\texttt{King}) = \frac{4}{52} \qquad \text{and} \qquad  P(Y=\texttt{King}) = \frac{4}{52} .\]
+On the other hand, we have
+\[ P(X=\texttt{King} \land  Y=\texttt{King}) = \frac{4}{52} \times \frac{3}{51}\]
+
+Hence, we have found values $x$ and $y$ such that
+\[P(X=x \text{ and } Y=y) \neq P(X=x) \, P(Y=y). \]
+Hence, $X$ and $Y$ are not independent.
+
+
+\end{itemize}
+
+\end{frame}
+
 
 
 

@@ -425,12 +425,138 @@ zeke.baumann: 21 \\\end{column}
 	\item[d.] Are the events in parts (a) and (b) independent?
 	\end{itemize}
 \item Prove Scheinerman Prop. 32.4.
-\item Let $A$ and $B$ be events in a sample space with $P(A \cap B) \neq 0$.  Prove that $P(A \cap B) = P(B \cap A)$ if and only if $P(A) = P(B)$.
+\item Let $A$ and $B$ be events in a sample space with $P(A \cap B) \neq 0$.  Prove that $P(A \cond B) = P(B \cond A)$ if and only if $P(A) = P(B)$.
 \end{enumerate}
 
 \end{frame}
 
 
+
+\begin{frame}{Solution to group exercise \#1a,b,c,d}
+\footnotesize 
+\textbf{Problem.}  Let $(S,P)$ be the sample space with $S=\set{1,2,\hdots, 10}$ and $P(x) =\frac{1}{10}$ for all $x \in S$.  Let $A$ be the event \enquote{is even} and $B$ be the event \enquote{is prime}.  Please calculate the following: (a) $P(A)$,  (b) $P(B)$, (c) $P(A \cond B)$, (d) $P(B \cond A)$.
+
+\vfill 
+
+\textbf{Solution.}
+We have 
+\[
+\begin{array}{r@{}l r@{}l}
+S &= \set{1,2,\hdots, 10} & |S| &= 10 \\
+A &= \set{2,4,6,8,10} & |A| &= 5 \\
+B &= \set{2,3,5,7} & |B| &= 4 \\
+A \cap B &= \set{2} & |A \cap B| &= 1
+\end{array}
+\]
+%
+By the equally likely probability formula, we have
+ \[ P(A) = \frac{|A|}{|S|} = 5/10, \qquad P(B) = \frac{|B|}{|S|} = 4/10, \qquad P(A \cap B) =  \frac{|A \cap B|}{|S|} = 1/10. \]
+Hence,
+\[P(A \cond B) = \frac{P(A \cap B)}{P(B)} = \frac{1/10}{4/10} = 1/4, \qquad  P(B \cond A) = \frac{P(A \cap B)}{P(A)} = \frac{1/10}{5/10} = 1/5.\]
+%
+\vfill 
+\textbf{Interpretation}: $P(A \cond B)$ gives the probability of randomly drawing an even number from the prime numbers in $S$.  It makes sense that $P(A \cond B)=1/4$: looking at set $B$, there are 4 prime numbers in $S$, only one of them is also even, and all of these numbers are equally likely to be drawn.  Similarly, $P(B \cond A)$ gives the probability of randomly drawing a prime number from the even numbers in $S$.  Note there are 5 even numbers, and only one of them is prime.
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#1e,f,g}
+\footnotesize 
+\textbf{Problem.}  Let $(S,P)$ be the sample space with $S=\set{1,2,\hdots, 10}$ and $P(x) =\frac{1}{10}$ for all $x \in S$.  Let $A$ be the event \enquote{is even} and $B$ be the event \enquote{is prime}.  Please calculate the following: (e) $P(\overline{B} \cond A)$, (f) $P(B \cond \overline{A})$, (g) $P(\overline{B} \cond \overline{A})$.
+		
+\vfill 
+
+\textbf{Solution.}
+We have 
+\[
+\begin{array}{r@{}l r@{}l}
+S &= \set{1,2,\hdots, 10} & |S| &= 10 \\
+\overline{A} &= \set{1,3,5,7,9} & |\overline{A}| &= 5 \\
+\overline{B} &= \set{1,4,6,8,9,10} & |\overline{B}| &= 6 \\
+A \cap \overline{B} &= \set{4,6,8,10} & |A \cap \overline{B}| &= 4 \\
+\overline{A} \cap B &= \set{3,5,7} & |\overline{A} \cap B | &= 3 \\
+\overline{A} \cap \overline{B} &= \set{1,9} & |\overline{A} \cap  \overline{B} | &= 2
+\end{array}
+\]
+%
+We have 
+%
+\begin{align*}
+P(\overline{B} \cond A) &= \frac{\overline{B} \cap A}{P(A)} = \frac{4/10}{5/10} = 4/5. \\
+P(B \cond \overline{A}) &= \frac{B \cap \overline{A}}{P(\overline{A})} = \frac{3/10}{5/10} = 3/5 \\
+P(\overline{B} \cond \overline{A}) &= \frac{\overline{B} \cap \overline{A}}{P(\overline{A})} = \frac{2/10}{5/10} = 2/5.
+\end{align*}
+%
+\vfill 
+\textbf{Example Interpretation}: $P(B \cond \overline{A})$ gives the probability of randomly drawing a prime number from the odd (non-even) numbers in $S$.  Looking at $\overline{A}$, we see that there are 5 odd numbers (all of them equally likely to be drawn), and 3 of them are prime.
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2}
+
+
+\textbf{Problem.} A card is drawn from a well-shuffled deck of 52-cards.
+	\begin{itemize}
+	\item[a.] What is the probability that it is a spade ($\spadesuit$)?
+	\item[b.] What is the probability that it is a king?	
+	\item[c.] What is the probability that it is the king of spades?
+	\item[d.] Are the events in parts (a) and (b) independent?
+	\end{itemize}
+\vfill 
+\textbf{Solution.} Let $A$ be the event \enquote{is a spade} and $B$ be the event \enquote{is king}. By the equally likely probability formula,
+	\begin{itemize}
+	\item[a.] $P(A) = \frac{|A|}{|S|} = \frac{13}{52} = \frac{1}{4}.$
+	\item[b.] $P(B) = \frac{|B|}{|S|} = \frac{4}{52} = \frac{1}{13}.$	
+	\item[c.] $P(A \cap B) = \frac{|A \cap B|}{|S|} = \frac{1}{52} = \frac{1}{52}.$	
+	\item[d.] Yes. Note that 
+	\[ \frac{1}{52} = P(A \cap B) =P(A) \times P(B) = \frac{1}{4} \times \frac{1}{13} \]
+	so the definition of independent events is verified.  Intuitively, the suit of a card (e.g. spade) provides no information about its rank (e.g. king). 
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#3}
+\small 
+\textbf{Problem.} Prove Scheinerman Prop. 32.4.
+\vfill 
+\textbf{Solution.} 
+\begin{itemize}
+\item $\boxed{(3) \implies (1).}$
+\[ P(A \cond B) \stackexplain{def.}{=}	 \frac{P(A \cap B)}{P(B)} \stackexplain{(3)}{=}	   \frac{P(A) \cancel{P(B)}}{\cancel{P(B)}} = P(A).  \]
+\item $\boxed{(3) \implies (2).}$
+\[ P(A \cond B) \stackexplain{def.}{=}	 \frac{P(A \cap B)}{P(A)} \stackexplain{(3)}{=}	   \frac{ \cancel{P(A)} P(B)}{\cancel{P(A)}} = P(B).  \]
+\item $\boxed{(1) \implies (3).}$
+\[ P(A \cap B) \stackexplain{def.}{=}	  P(A \cond B) P(B) \stackexplain{(1)}{=}	P(A) P(B) \]
+\item $\boxed{(2) \implies (3).}$
+\[ P(A \cap B) \stackexplain{def.}{=}	  P(B \cond A) P(A) \stackexplain{(2)}{=}	P(B) P(A) \]
+\end{itemize}
+In the above, \enquote{\textit{def.}} refers to the definition of conditional probability.
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#4}
+\small 
+\textbf{Problem.} Let $A$ and $B$ be events in a sample space with $P(A \cap B) \neq 0$.  Prove that $P(A \cond B) = P(B \cond A)$ if and only if $P(A) = P(B)$.
+\vfill 
+\vspace{-.1cm}
+\textbf{Remark.} Recall that to prove an \enquote{if and only if} statement, we must prove that if-then propositions hold in both directions. 
+\vfill 
+\vspace{-.1cm}
+\textbf{Solution.}
+\begin{itemize}
+\item $\boxed{\implies}$. We assume $P(A \cond B) = P(B \cond A)$  and show $P(A) = P(B)$.   Since $P(A \cond B) = P(B \cond A)$, by the definition of conditional probability, we have
+\[ \frac{P(A \cap B)}{P(A)} =  \frac{P(A \cap B)}{P(B)}.\] 
+ Cross multiplying, we obtain
+ \[ P(A \cap B) \, P(A) =  P(A \cap B) \, P(B). \]
+ Since $P(A \cap B) \neq 0$, we can divide both sides by it, leaving $P(A)=P(B)$. %(and $P(A \cap B) \neq 0$)
+\item $\boxed{\impliedby}$. We assume $P(A) = P(B)$ and show $P(A \cond B) = P(B \cond A)$.   We have
+%
+\begin{align*}
+P(A \cond B) 	\stackexplain{def.}{=}	 \frac{P(A \cap B)}{P(B)} \stackexplain{assumpt.}{=}	\frac{P(A \cap B)}{P(A)}\stackexplain{def.}{=}	P(B \cond A). 
+\end{align*}
+
+\end{itemize}
+
+\end{frame}
 
 
 \end{document}

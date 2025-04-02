@@ -759,7 +759,7 @@ zeke.baumann: 6 \\\end{column}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Solution to group exercise \#1d.}
+\begin{frame}{Solution to group exercise \#1d}
 \footnotesize
 \textbf{Problem.}  Find $Var[X_5]$, the variance of the change in stock price after five days. 
 \vfill \vfill 
@@ -786,6 +786,51 @@ Hence,
 because the $Y_j$'s are independent.
 \end{frame}
 
+
+
+\begin{frame}{Solution to group exercise \#2}
+\footnotesize 
+\textbf{Problem.} A pair of 25-sided dice is rolled. Let $X$ be the sum of the two numbers and $Y$ be the product. Find $E[X]$ and $E[Y]$.
+\vfill 
+\textbf{Solution.} Let $X_i$ be the value of the die on the $i$-th roll, where $i \in \set{1,2}$.   \\
+
+Now $X=X_1+X_2$. So by linearity of expectation, $E[X]=E[X_1]+E[X_2]$.  Each $X_i$ satisfies
+%
+\begin{align*}
+E[X_i] &= \sum_{s \in S} X(s) P(s) \\
+&= (1+\hdots + 25) \frac{1}{25} \\
+&= \frac{(25)(26)}{2} \frac{1}{25} \\
+&=13
+\end{align*}
+Hence
+\[E[X]=E[X_1]+E[X_2] = 13+13 =26 \]
+So on average, the sum of the values on the two dice will be 26. \\
+\vfill 
+Moreover $Y=X_1 X_2$. By independence, $E[Y] = E[X_1]E[X_2]$.  So the expected product of the two rolls is
+\[E[Y]=E[X_1]E[X_2] = (13)(13) = 169. \]
+So on average, the product of the values on the two dice will be 169. \\
+
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#3}
+\footnotesize
+
+\textbf{Problem.} The term \textit{expected value} can be a bit deceiving. Sometimes it is not what someone might expect! (a) Give an example of a random variable $X$ where $E[X]=1$ but $P(X=1)=0$.  (b) Give an example of a random variable $X$ where $E[X]<0$ but the probability that $X$ is positive is nearly 100\%.
+\vfill 
+\textbf{Solution.}
+\begin{itemize}
+\item[a.] Let $X$ be a random variable that takes on the value $X=2$ with probability $\frac{1}{2}$ and the value $X=0$ with probability $\frac{1}{2}$. Then
+\[ E[X] = \sum_{a \in \R} a \, P(X=a) = \bigg(\half \bigg)(0) + \bigg(\half \bigg)(2) = 1. \]
+But $P(X=1)=0$.
+\item[b.] Let $X$ be a random variable that takes on the value $X= -1,000,000$ with probability $0.001$ and the value $X=1$ with probability $0.999$.
+Then 
+\[ E[X] = \sum_{a \in \R} a \, P(X=a) = (.001)(-1,000,000) + (.999)(1) = -999.001. \]
+So $E[X]<0$; that is, the expected value  of the random variable is negative. But 
+\[P(X>0)=P(X=1)= 0.999\]
+So the probability that $X$ is positive is almost 100\%.
+\end{itemize}
+	
+\end{frame}
 
 
 \end{document}

@@ -571,7 +571,7 @@ zeke.baumann: 6 \\\end{column}
 \begin{frame}{Group exercises}
 \footnotesize 
 \begin{enumerate}
-	\item \textit{Simplified stock market.} Suppose there are three kinds of days: \texttt{GOOD}, \texttt{GREAT}, and \texttt{ROTTEN}. The following chart gives the frequency of each of these types of days and the effect on the price of a certain stock that day.
+	\item \textit{Simplified stock market.} Suppose there are three kinds of days: \texttt{GOOD}, \texttt{GREAT}, and \texttt{ROTTEN}. The following chart gives the frequency of each of these types of days and the effect on the price (in dollars) of a certain stock that day.
 	
 	\begin{table}[H]
 	\begin{tabular}{|c|c|c|}
@@ -587,10 +587,10 @@ zeke.baumann: 6 \\\end{column}
 	
 	Let $X_n$ be the change in the value of the stock after $n$ consecutive days.
 	 \begin{itemize} \footnotesize 
-	\item[a.] Find the expected change in stock price after one day. (That is, find $E[X_1]$.)
-	\item[b.] Find the variance in stock price after one day.  (That is, find $Var[X_1]$.)
-	\item[c.] Find $E[Y_5]$.
-	\item[d.] Find $Var[Y_5]$.
+	\item[a.] Find $E[X_1]$, the expected change in stock price after one day. 
+	\item[b.] Find  $Var[X_1]$, the variance in the change in stock price after one day. 
+	\item[c.] Find $E[X_5]$.
+	\item[d.] Find $Var[X_5]$.
 	\end{itemize}
 	\vspace{-.2cm}
 	\item  \leavevmode
@@ -607,6 +607,184 @@ zeke.baumann: 6 \\\end{column}
 
 \end{frame}
 
+
+\begin{frame}{Solution to group exercise \#1a}
+\footnotesize 
+
+\textbf{Problem \& Solution.} \textit{Simplified stock market.} Suppose there are three kinds of days: \texttt{GOOD}, \texttt{GREAT}, and \texttt{ROTTEN}. The following chart gives the frequency of each of these types of days and the effect on the price (in dollars) of a certain stock that day.
+	\vspace{-.2cm}
+	\begin{table}[H]
+	\begin{tabular}{|c|c|c|}
+	\toprule 
+	\colorbox{blue!30}{Type of day} & 	\colorbox{blue!30}{Frequency} & \colorbox{blue!30}{Change in stock value} \\
+	\midrule 
+	\texttt{GOOD} & 60\% & +2 \\
+	\texttt{GREAT} & 10\% & +5 \\
+	\texttt{ROTTEN} & 30\% & -4 \\
+	\bottomrule 
+	\end{tabular}
+	\end{table}
+	\vspace{-.2cm}
+	Let $X_n$ be the change in the value of the stock after $n$ consecutive days.
+		%
+		\vspace{-.2cm}
+		%
+	 \begin{itemize} \footnotesize 
+	\item[a.] Find $E[X_1]$, the expected change in stock price after one day. 
+	%
+	\begin{align*}
+	 E[X_1] &= \sum_{s \in S} X_1(s) P(s)  \\
+	 &= (+2)(0.6) + 	(+5)(0.1) + (-4)(.30) = 0.5
+	\end{align*}
+	%
+	We expect the stock value to rise \$0.50 after one day.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#1b}
+\footnotesize 
+
+\textbf{Problem \& Solution.} \textit{Simplified stock market.} Suppose there are three kinds of days: \texttt{GOOD}, \texttt{GREAT}, and \texttt{ROTTEN}. The following chart gives the frequency of each of these types of days and the effect on the price (in dollars) of a certain stock that day.
+	\vspace{-.2cm}
+	\begin{table}[H]
+	\begin{tabular}{|c|c|c|}
+	\toprule 
+	\colorbox{blue!30}{Type of day} & 	\colorbox{blue!30}{Frequency} & \colorbox{blue!30}{Change in stock value} \\
+	\midrule 
+	\texttt{GOOD} & 60\% & +2 \\
+	\texttt{GREAT} & 10\% & +5 \\
+	\texttt{ROTTEN} & 30\% & -4 \\
+	\bottomrule 
+	\end{tabular}
+	\end{table}
+	\vspace{-.2cm}
+	Let $X_n$ be the change in the value of the stock after $n$ consecutive days.
+		%
+		\vspace{-.2cm}
+		%
+	 \begin{itemize} \footnotesize 
+	\item[b.] Find  $Var[X_1]$, the variance in the change in stock price after one day.
+	%
+	\begin{align*}
+	 Var[X_1] &= \sum_{s \in S} (X_1(s)-\mu)^2 P(s)  && \text{(where $\mu \defeq \E[X_1]$)} \\
+	 \intertext{Since we know from part (a) that $\mu=0.5$,}
+	 &= \sum_{s \in S} (X_1(s)-0.5)^2 P(s) \\
+	 &= (2 - 0.5)^2 \times .6 + 	(5-0.5)^2 \times .3 + (-4-0.5)^2 \times .10 \\
+	 &= 9.45
+	\end{align*}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#1b -- Alternate solution.}
+\footnotesize 
+
+\textbf{Problem \& Solution.} \textit{Simplified stock market.} Suppose there are three kinds of days: \texttt{GOOD}, \texttt{GREAT}, and \texttt{ROTTEN}. The following chart gives the frequency of each of these types of days and the effect on the price (in dollars) of a certain stock that day.
+	\vspace{-.2cm}
+	\begin{table}[H]
+	\begin{tabular}{|c|c|c|}
+	\toprule 
+	\colorbox{blue!30}{Type of day} & 	\colorbox{blue!30}{Frequency} & \colorbox{blue!30}{Change in stock value} \\
+	\midrule 
+	\texttt{GOOD} & 60\% & +2 \\
+	\texttt{GREAT} & 10\% & +5 \\
+	\texttt{ROTTEN} & 30\% & -4 \\
+	\bottomrule 
+	\end{tabular}
+	\end{table}
+	\vspace{-.2cm}
+	Let $X_n$ be the change in the value of the stock after $n$ consecutive days.
+		%
+		\vspace{-.2cm}
+		%
+	 \begin{itemize} \footnotesize 
+	\item[b.] Find  $Var[X_1]$, the variance in the change in stock price after one day.
+	%
+	\begin{align*}
+	 Var[X_1] &= E[X_1^2] - E[X_1]^2
+	 \end{align*}
+	 %
+	For the first summand,  
+	%
+	\begin{align*}
+	E[X_1^2] &= \sum_{s \in S} X_1(s) P(s)  \\
+	 &= (+2)^2 \times .6 + 	(+5)^2 \times .3 + (-4)^2 \times .10 = 0.5 \\
+	 &= 4 \times .6 + 	25 \times .3 + 16 \times .10 = 9.7 
+	 \end{align*}
+	 %
+	 For the second summand, we know  from part (a) that $\E[X_1]=0.5$. Hence $\E[X_1]^2=0.25$.  Putting this together, we have
+	 \[  Var[X_1] = E[X_1^2] - E[X_1]^2 = 9.7-0.25 = 9.45.\]
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#1c}
+\footnotesize 
+
+\textbf{Problem \& Solution.} \textit{Simplified stock market.} Suppose there are three kinds of days: \texttt{GOOD}, \texttt{GREAT}, and \texttt{ROTTEN}. The following chart gives the frequency of each of these types of days and the effect on the price (in dollars) of a certain stock that day.
+	\vspace{-.2cm}
+	\begin{table}[H]
+	\begin{tabular}{|c|c|c|}
+	\toprule 
+	\colorbox{blue!30}{Type of day} & 	\colorbox{blue!30}{Frequency} & \colorbox{blue!30}{Change in stock value} \\
+	\midrule 
+	\texttt{GOOD} & 60\% & +2 \\
+	\texttt{GREAT} & 10\% & +5 \\
+	\texttt{ROTTEN} & 30\% & -4 \\
+	\bottomrule 
+	\end{tabular}
+	\end{table}
+	\vspace{-.2cm}
+	Let $X_n$ be the change in the value of the stock after $n$ consecutive days.
+		%
+		\vspace{-.2cm}
+		%
+	 \begin{itemize} \footnotesize 
+	\item[c.] Find $E[X_5]$, the expected change in stock price after five days. 
+	%
+	The analysis is simplest if we write $X_5 = Y_1 + Y_2 + \hdots + Y_5$, where $Y_j$ is the change in stock price on the $j$-th day. \\
+	
+	Now, by linearity of expectation
+	\[E[X_5] = E[Y_1] + E[Y_2] + \hdots + E[Y_5].\] 
+	 %
+	 Each summand is given by
+	 \[E[Y_j] = (+2)(0.6) + 	(+5)(0.1) + (-4)(.30) = 0.5, \]
+	 as was solved in part (a).
+	 
+	 Hence, 
+	 \[E[X_5] = 5(0.5) = 2.5 \]
+	  %
+	  We expect the stock value to rise \$2.50 after 5 days.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#1d.}
+\footnotesize
+\textbf{Problem.}  Find $Var[X_5]$, the variance of the change in stock price after five days. 
+\vfill \vfill 
+\textbf{Solution.}   We write
+  \[ Var[X_5] = E[X_5^2] - E[X_5]^2 \]
+  For the second summand, we know from part (c) that $E[X_5] = 2.5$, so $ E[X_5]^2 = 2.5^2 = 6.25$. \\
+   \vfill 
+   For the first summand, we again write $X_5 = Y_1 + Y_2 + \hdots + Y_5$, where $Y_j$ is the change in stock price on the $j$-th day.  We use the fact that the $Y_j$'s are independent.
+   %
+   \begin{align*}
+   E[X_5^2] &= E[(Y_1 + Y_2 + \hdots + Y_5)^2] \\
+   &=E[Y_1^2 + \hdots + Y_5^2 + 2Y_1Y_2 + \hdots +2Y_4Y_5] && \scripttext{(expanding the sum of squares)}\\
+   &= 5E[Y_1^2] + 20E[Y_1Y_2] && \scripttext{(since $Y_j$'s are identical)}\\
+   &= 5E[Y_1^2] + 20E[Y_1]E[Y_2]  && \scripttext{(by independence)}\\
+   &= (5)(9.7)  + 20(0.5)^2 && \scripttext{(using previous parts)}\\
+   &= 53.5
+   \end{align*}
+
+Hence,
+  \[ Var[X_5] = E[X_5^2] - E[X_5]^2 = 53.5 - 6.25 = 47.25 \]
+\vfill \vfill 
+\textbf{Remark.} This problem is much simpler if we use a fact (not presented in the text) that 
+\[ Var(X_5) = Var(Y_1) + \hdots Var(Y_5)\]
+because the $Y_j$'s are independent.
+\end{frame}
 
 
 

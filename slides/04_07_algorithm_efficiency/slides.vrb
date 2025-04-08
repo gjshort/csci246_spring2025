@@ -1,0 +1,22 @@
+
+\colorbox{yellow!30}{\textbf{Poll.}} How does the theorem apply to algorithm efficiency?
+\pause
+\vfill
+\colorbox{green!30}{\textbf{Solution.}} Consider an algorithm segment with a nested for loop, such as the one below.
+
+\begin{myredbox}[title=\text{An algorithm segment with a nested for loop}]
+\begin{lstlisting}
+for i = 1 to n:
+    for j = 1 to i:	
+      	print "YOLO"
+\end{lstlisting}
+\end{myredbox}
+\vfill
+\pause
+
+The number of times the inner loop is run is
+\[1+2+3+4+ \hdots + n \]
+
+We need this quantity to compute algorithmic efficiency, since the number of elementary operations performed by an algorithm segment is given by
+\[ \#  \text{elem. ops} \; = \; \#  \text{inner loops}   \; \times \; \#  \text{elem. ops. per inner loop} \]
+

@@ -162,14 +162,17 @@ Thoughts On Algorithm Efficiency
 For every natural number $n \geq 1$, 
 \[ 1 + 2 + \cdots + n = \frac{n \, (n+1)}{2} \]
 \end{mygreenbox}
-
 \vfill 
 \pause 
-\begin{myredbox}[title=\text{Story: Gauss' solution from elementary school}]
+\begin{myyellowbox}[title=\text{Story: Gauss' solution from elementary school}]
 \begin{figure}
 \includegraphics[width=\textwidth]{images/gauss_sum.png}	
 \end{figure}	
-\end{myredbox}
+\end{myyellowbox}
+\vfill 
+\pause 
+\colorbox{red!30}{\textbf{Remark.}} Recall that we can use summation notation to express the left-hand side more succinctly; in that case, we write the theorem as:
+\[ \sum_{k=1}^n k =  \frac{n \, (n+1)}{2} \]
 \end{frame}
 
 
@@ -343,7 +346,111 @@ For each of the algorithm segments below, assume $n$ is a positive integer.
     \includegraphics[width=\linewidth]{images/epp_hw_17}%  \\
 \end{minipage}
 
+\end{frame}
 
+
+
+
+\begin{frame}{Solution for algorithm segment \#1}
+\begin{center}
+    \includegraphics[width=.4\linewidth]{images/epp_hw_6}%
+\end{center}
+
+\colorbox{green!30}{\textbf{Solution Summary.}}
+\[ 
+\begin{array}{lll}
+\text{Step 1} & \textbf{\# its.} & n-3 \\
+\text{Step 2} & \textbf{\# el ops. per it.} & 4 \\
+\text{Step 3}& \textbf{\# el ops.} & 4n-12 \\
+\text{Step 4} & \textbf{Order} & \Theta(n) \\
+\end{array}
+\]
+
+\colorbox{red!30}{\textbf{Solution Details.}}
+\[ 
+\begin{array}{ll}
+\text{Step 1} & \text{Since we skip the first two iterates, do $(n-1) - 2 = n-3$.} \\
+\text{Step 2} & \text{Two multiplications, one subtraction, one addition.} \\
+\text{Step 3}& \text{Multiply Steps 1 and 2.} \\
+\text{Step 4} & \text{By theorem on polynomial orders.}\\
+\end{array}
+\]
+    	
+\end{frame}
+
+
+
+\begin{frame}{Solution for algorithm segment \#2}
+\footnotesize 
+\begin{center}
+    \includegraphics[width=.3\linewidth]{images/epp_hw_11}%
+\end{center}
+
+\colorbox{green!30}{\textbf{Solution Summary.}}
+\[ 
+\begin{array}{lll}
+\text{Step 1} & \textbf{\# its.} & \frac{n^2}{2} - \frac{n}{2}-1 \\
+\text{Step 2} & \textbf{\# el ops. per it.} & 1 \\
+\text{Step 3}& \textbf{\# el ops.} & \frac{n^2}{2} - \frac{n}{2}-1 \\
+\text{Step 4} & \textbf{Order} & \Theta(n^2) \\
+\end{array}
+\]
+
+\colorbox{red!30}{\textbf{Solution Details.}}
+\[
+\begin{array}{>{\RaggedRight\arraybackslash}p{1cm}>{\RaggedRight\arraybackslash}p{8cm}}
+\text{Step 1} &  We unfold the nested loop into a single loop by focusing only on the inner loop. The inner loop does $2+ \hdots +n = \frac{n(n+1)}{2} -1$ iterations. Here we use Gauss' formula for summing the first $n$ natural numbers. \\
+\text{Step 2} &  One addition. \\
+\text{Step 3}& Multiply Steps 1 and 2. \\
+\text{Step 4} & By theorem on polynomial orders. \\
+\end{array}
+\]
+\end{frame}
+
+
+
+\begin{frame}{Solution for algorithm segment \#3}
+\footnotesize 
+
+\setlength{\columnsep}{0pt} % <--- This removes space between columns
+
+\begin{columns}[c]
+    % Left column: image
+    \column{0.3\textwidth}
+    \includegraphics[width=\linewidth]{images/epp_hw_17}
+	
+    % Right column: colored label + array
+    \column{0.75\textwidth}
+    \colorbox{green!30}{\textbf{Solution Summary.}} \\[0.3em]
+    \[
+    \begin{array}{lll}
+    \text{Step 1} & \textbf{\# its.} & \begin{cases}
+    \frac{n^2}{4} + \frac{n}{2} + \frac{1}{4}, & \text{$n$ odd} \\
+    \frac{n^2}{4} + \frac{n}{2}, & \text{$n$ even}
+    \end{cases} \\
+    \text{Step 2} & \textbf{\# el ops. per it.} & 3 \\
+    \text{Step 3} & \textbf{\# el ops.} & \begin{cases}
+    3\left(\frac{n^2}{4} + \frac{n}{2} + \frac{1}{4}\right), & \text{$n$ odd} \\
+    3\left(\frac{n^2}{4} + \frac{n}{2}\right), & \text{$n$ even}
+    \end{cases} \\
+    \text{Step 4} & \textbf{Order} & \Theta(n^2)
+    \end{array}
+    \]
+\end{columns}
+
+
+\colorbox{red!30}{\textbf{Solution Details.}}
+How many times is the inner loop run? 
+Depends if $n$ is odd or even.
+ %
+ \begin{align*}
+\texttt{\# its ($n$ odd)} & = 1+1 + 2 +2 + \hdots + \frac{n-1}{2} + \frac{n-1}{2} + \frac{n+1}{2} \\
+&= 2 \sum_{k=1}^{\frac{n-1}{2}} k + \frac{n+1}{2} \stackrel{*}{=} \cancel{2} \frac{1}{\cancel{2}} (\frac{n-1}{2})(\frac{n+1}{2}) + \frac{n+1}{2} =  \frac{n^2}{4} + \frac{n}{2} + \frac{1}{4} \\
+\texttt{\# its ($n$ even)} & = 1+1 + 2 +2 + \hdots + \frac{n}{2} + \frac{n}{2} \\
+&= 2 \sum_{k=1}^{\frac{n}{2}} k  \stackrel{*}{=} \cancel{2} \frac{1}{\cancel{2}} (\frac{n}{2})(\frac{n+2}{2}) =    \frac{n^2}{4} + \frac{n}{2}
+ \end{align*}
+%
+In the equations marked *, we use Gauss' formula for summing the first $n$ natural numbers. 
 \end{frame}
 
 \end{document}

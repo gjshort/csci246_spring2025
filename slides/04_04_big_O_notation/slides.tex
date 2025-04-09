@@ -311,7 +311,7 @@ We should interpret \enquote{$g \text{ is } O(x^4)$} as: \enquote{$g$ is of orde
 \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Overview: Big Theta combines Big O and Big Omega}
 \small 
 
 \begin{tabularx}{\textwidth}{c @{\hspace{0.25cm}} c @{\hspace{0.25cm}} c @{\hspace{0.25cm}} X}
@@ -323,12 +323,8 @@ We should interpret \enquote{$g \text{ is } O(x^4)$} as: \enquote{$g$ is of orde
 \textbf{Big Theta} &  $f \text{ is } \Theta(g)$ & $f$ is of order $g$ & The values of $f$ are  eventually \textbf{less} than those of a positive multiple of $g$ and  \textbf{greater} than those of a positive multiple of $g$.\\
 \bottomrule
 \end{tabularx}
-
-
 	
 \end{frame}
-
-
 
 \begin{frame}
 \begin{figure}
@@ -336,7 +332,43 @@ We should interpret \enquote{$g \text{ is } O(x^4)$} as: \enquote{$g$ is of orde
 \end{figure}
 \end{frame}
 
-\begin{frame}
+
+\begin{frame}{Big Omega: Definition}
+\small 
+\begin{mygreenbox}[title=Definition]
+Let $f$ and $g$ be real-valued non-negative functions defined on the same set of nonnegative integers. 
+
+\vfill 
+
+Then $f$ is of order at least $g$, written \textbf{$\bm{f(n)}$ is $\bm{\Omega(g(n))}$} ($f$ of $n$ is big-Omega of $g$ of $n$) if and only if there exist positive real number $A$ and integer $a$ such that
+\[  |f(n)| \geq A |g(n)| \quad \text{for every integer } n \geq a\]	
+\end{mygreenbox}
+\vfill 
+\begin{figure}
+\includegraphics[width=.6\textwidth]{images/big_Omega.png}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Big Theta: Definition}
+
+\begin{mygreenbox}[title=Definition]
+Let $f$ and $g$ be real-valued non-negative functions defined on the same set of nonnegative integers. 
+\vfill 
+Then $f$ is of order $g$, written \textbf{$\bm{f(n)}$ is $\bm{\Theta(g(n))}$} ($f$ of $n$ is big-Theta of $g$ of $n$) if and only if $\bm{f(n)}$ is $\bm{O(g(n))}$ and $\bm{f(n)}$ is $\bm{\Omega(g(n))}$.
+\end{mygreenbox}
+
+\vfill 
+\begin{figure}
+\includegraphics[width=.6\textwidth]{images/big_Theta_solo.png}
+\end{figure}
+
+\end{frame}
+
+
+
+
+\begin{frame}{A useful theorem on Big Theta}
 
 \begin{myredbox}[title=\text{Theorem: On Polynomial Orders}]
 If $m$ is any integer with $m \geq 0$ and $c_0, c_1, c_2, \hdots c_m$ are real numbers with $c_m \geq 0$, then
@@ -344,6 +376,8 @@ If $m$ is any integer with $m \geq 0$ and $c_0, c_1, c_2, \hdots c_m$ are real n
 \end{myredbox}
 
 \end{frame}
+
+
 
 
 
@@ -440,5 +474,102 @@ zeke.baumann: 5 \\\end{column}
 \colorbox{red!30}{\textbf{Theorem 7.9 (Ponomarenko).}} Let $a_n$ be a sequence, and $b_n,c_n$ be test sequences.  If $a_n = O(b_n)$ and $b_n = O(c_n)$, then $a_n = O(c_n)$.
 \end{frame}
 
+
+\begin{frame}{Solution to Group Exercise \#1}
+\textbf{Problem.} Let $a_n = 1,000,000n + 3,000,000$. Prove that $a_n = O(n)$.
+\vfill 
+\textbf{Solution.}
+%
+For $n \geq 1$,
+\begin{align*}
+|1,000,000n + 3,000,000| \leq |1,000,000n + 3,000,000n| = 4,000,000 |n| 
+\end{align*}
+This satisfies the definition that  $a_n$ is $O(n)$ by setting $b=1$ and $B= 4,000,000$. 
+\end{frame}
+
+\begin{frame}{Solution to Group Exercise \#2}
+\textbf{Problem.} Let $a_n = 5 + \frac{1}{n} + \frac{1}{n+1}$. Prove that $a_n = O(1)$.
+
+\vfill 
+\textbf{Solution.}
+%
+For $n \geq 1$,
+\begin{align*}
+|5 + \frac{1}{n} + \frac{1}{n+1}| \leq |5 + 1 + 1| = 7 \cdot |1| 
+\end{align*}
+This satisfies the definition that  $a_n$ is $O(1)$ by setting $b=1$ and $B=7$. 
+\end{frame}
+
+\begin{frame}{Solution to Group Exercise \#3}
+\textbf{Problem.} Let $a_n = n^2 + n + 1 + \frac{1}{n} + \sin n$. Prove that $a_n = O(n^2)$.
+
+\vfill 
+\textbf{Solution.}
+%
+For $n \geq 1$,
+\begin{align*}
+|n^2 + n + 1 + \frac{1}{n} + \sin n| &\leq |n^2 + n + 1 + 1 + 1| \\
+& \leq |n^2 + n^2  + n^2  + n^2  + n^2 | \\
+&= 5 |n^2|
+\end{align*}
+This satisfies the definition that  $a_n$ is $O(n^2)$ by setting $b=1$ and $B=5$. 
+\end{frame}
+
+
+\begin{frame}{Solution to Group Exercise \#4}
+\textbf{Problem.} Let $a_n = 3n^2 + 7$. Prove that $a_n = \Theta (n^2)$.
+
+\vfill 
+\textbf{Solution.}
+%
+For $n \geq 1$,
+\begin{align*}
+|3n^2 + 7| &\leq |3n^2 + 7n^2| = 10 |n^2| 
+\end{align*}
+%
+This satisfies the definition that  $a_n$ is $O(n)$ by setting $b=1$ and $B=10$.
+\vfill 
+
+Again for $n \geq 1$,
+\begin{align*}
+|3n^2 + 7| &\geq |3n^2| = 3 |n^2| 
+\end{align*}
+%
+This satisfies the definition that  $a_n$ is $\Omega(n)$ by setting $a=1$ and $A=3$. 
+\vfill 
+Since $a_n$ is both $O(n)$ and $\Omega(n)$, we can conclude that $a_n$ is $\Theta(n)$.
+\end{frame}
+
+
+\begin{frame}{Solution to Group Exercise \#5}
+
+\colorbox{yellow!30}{\textbf{Problem.}}  Prove Theorem 7.9 from the Ponomarenko reading. 
+
+
+\vfill
+\colorbox{red!30}{\textbf{Theorem 7.9 (Ponomarenko).}} Let $a_n$ be a sequence, and $b_n,c_n$ be test sequences.  If $a_n = O(b_n)$ and $b_n = O(c_n)$, then $a_n = O(c_n)$.
+\vfill 
+\colorbox{green!30}{\textbf{Solution.}}
+%
+Since  $a_n = O(b_n)$, we have that for $n \geq b_1$,
+\begin{align*}
+|a_n| &\leq B_1 |b_n| \qquad \text{ for some constant } \; B_1.
+\labelit \label{eqn:first_eqn}
+\end{align*}
+%
+Since  $b_n = O(c_n)$, we have that for $n \geq b_2$,
+\begin{align*}
+|b_n| &\leq B_2 |c_n| \qquad \text{ for some constant } \; B_2.
+\labelit \label{eqn:second_eqn}
+\end{align*}
+\vfill 
+Hence for $n \geq \texttt{max} \set{b_1,b_2}$,
+%
+\begin{align*}
+|a_n|  \stackexplain{\Eqref{eqn:first_eqn}}{\leq} B_1 |b_n| \stackexplain{\Eqref{eqn:second_eqn}}{\leq} B_1 \cdot B_2 |c_n| 
+\end{align*}
+%
+This satisfies the definition that  $a_n$ is $O(c_n)$ by setting $b=\texttt{max} \set{b_1,b_2}$ and $B=B_1 \cdot B_2$. 
+\end{frame}
 
 \end{document}

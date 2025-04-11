@@ -1,0 +1,325 @@
+\documentclass[10pt]{beamer}
+
+%%%
+% PREAMBLE FOR THIS DOC 
+%%%
+%https://tex.stackexchange.com/questions/68821/is-it-possible-to-create-a-latex-preamble-header
+\usepackage{/Users/miw267/Repos/csci246_spring2025/slides/preambles/beamer_preamble_for_CSCI246}
+
+
+%%% TRY TO RESHOW TOC AT EACH SECTION START (with current section highlighted)
+% Reference: https://tex.stackexchange.com/questions/280436/how-to-highlight-a-specific-section-in-beamer-toc
+\newcommand\tocforsect[2]{%
+  \begingroup
+  \edef\safesection{\thesection}
+  \setcounter{section}{#1}
+  \tableofcontents[#2,currentsection]
+  \setcounter{section}{\safesection}
+  \endgroup
+}
+
+
+\usepackage[normalem]{ulem} % for strikeout (\sout)
+
+%%%% HERES HOW TO DO IT CORRECTLY
+% FIRST IN .STY FILE, DO
+%\usetheme[sectionpage=none]{metropolis}
+% THEN AT EACH SECTION DO
+%\begin{frame}{Outline}
+%  \tableofcontents[currentsection]	
+%\end{frame}
+
+
+
+%\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}[frame number]{}
+
+
+%%%
+% DOCUMENT
+%%%
+
+\begin{document}
+
+%\maketitle
+
+%% Title page frame
+%\begin{frame}
+%    \titlepage 
+%\end{frame}
+
+
+
+\title{04/11/2025: Subgraphs}
+\author{CSCI 246: Discrete Structures}
+\date{Textbook reference: Sec 48, Scheinerman}
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+
+\begin{frame}
+\small
+\begin{mygreenbox}[title=Graded Quiz Pickup]
+Quizzes are in the front of the room, grouped into four bins (A-G, H-L, M-R, S-Z) by last name. The quizzes are upside down with your last name on the back. Come find yours before, during, or after class. Only turn the quiz over if it's yours.
+\end{mygreenbox} 
+\vfill 
+%\begin{myredbox}[title=Friday's Problems Quiz]
+%The problems quiz on Friday (04/02) will cover:
+%\begin{itemize}
+%\item Conditional Probability and Independence
+%\item Random Variables
+%\item Expectations	
+%\end{itemize}
+%
+%\end{myredbox}
+\vfill 
+\begin{myyellowbox}[title=Today's Agenda]
+\begin{itemize}
+	\item Problems and reading quiz (15 mins)
+	\item Mini-lecture ($\approx$ 10 mins)
+	\item Group exercises ($\approx$ 20 mins)
+\end{itemize}
+
+
+\end{myyellowbox}
+\vfill 
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}[standout]
+Feedback on Wednesday's Quiz
+\end{frame}
+
+
+\begin{frame}{Reading Quiz Scores}
+\begin{figure}[ht]
+        \centering
+        \includegraphics[width=.9\textwidth]{images/reading_quiz_scores}
+   		 \caption{Median Score = 3/3 (100\%)}
+\end{figure}
+%\vfill 
+%\textbf{Grading Rubric:}  
+%\begin{enumerate}
+%\item (1 point) Needed to give  reasonable answer to number of elementary operations (for the WHOLE algorithm snippet).
+%\item (1 point) Stating the order (ideally as Big Theta, but Big O was accepted)
+%\end{enumerate}
+
+
+\end{frame}	
+
+
+
+
+\begin{frame}[standout]
+Today's quiz
+\end{frame}
+
+\begin{frame}
+\small 
+
+\begin{mygreenbox}[title=\text{Problems Quiz (recurrence, big O notation, algorithm efficiency)}]
+
+\begin{enumerate}
+\item Solve the recurrence relation $a_n = 4 a_{n-1} -4 a_{n-2}$  with initial conditions $a_0=5$ and $a_1=1$ to give an explicit formula for $a_n$. 
+\item Let $a_n = 3n^2 + 7$. Prove that $a_n = \Theta (n^2)$.
+\end{enumerate}
+\end{mygreenbox}
+\vfill 
+\begin{myyellowbox}[title=\text{Reference material about second-order recurrences}]
+To solve a recurrence of the form $a_n = s_1 a_{n-1} + s_2 a_{n-2}$, solve the quadratic formula $x^2 - s_1 x - s_2 =0$ to find roots $r_1$ and $r_2$. If $r_1 \neq r_2$, then $a_n = c_1 r_1^n + c_2 r_2^n$. If $r_1 = r_2 \defeq r$, then  $a_n = c_1 r^n + c_2 n r^n$. Then find $c_1$ and $c_2$.
+\end{myyellowbox}
+
+
+\vfill 
+\begin{myredbox}[title=Reading Quiz (Subgraphs)]
+Name one clique and one independent set from the graph below.
+\begin{figure}
+\includegraphics[width=.4\linewidth]{images/graph.png}
+\end{figure}
+\end{myredbox}
+\end{frame}
+
+
+
+\begin{frame}[standout]
+Thoughts On Subgraphs
+\end{frame}
+
+
+\begin{frame}{Subgraphs}
+\small 
+\colorbox{yellow!30}{\textbf{Poll.}} How would you describe a \textbf{subgraph} in words?
+\vfill
+\pause 
+\colorbox{green!30}{\textbf Definition.} Let $G$ and $H$ be graphs.  We call $G$ a \textbf{subgraph} of $H$ provided $V(G) \subseteq V(H)$ and $E(G) \subseteq E(H)$. 
+\vfill 
+\pause 
+\begin{mygreenbox}[title=\text{Example: G is a \textbf{subgraph} of H}]
+\begin{figure}
+\includegraphics[width=\textwidth]{images/subgraph_general.png}
+\end{figure}	
+\end{mygreenbox}
+\vfill 
+\pause 
+\colorbox{red!30}{\textbf{Solution.}} Possibly remove some vertices (and edges that touch them, so that you still have a graph).  Then possibly remove some additional edges.	
+\end{frame}
+
+
+\begin{frame}{Induced subgraphs}
+\small 
+
+\colorbox{yellow!30}{\textbf{Poll.}} How would you describe an \textbf{induced subgraph} in words?
+\vfill
+\pause 
+\colorbox{green!30}{\textbf Definition.} Let $H$ be a graph and $A \subseteq V(H)$.  Then the subgraph of $H$ induced on $A$ is the graph $H[A]$ defined by
+%
+\begin{align*}
+V(H[A]) &= A, \quad \text{and} \\
+E(H[A]) &= \set{xy \in E(H) : x \in A \text{ and} y \in A}.	
+\end{align*}
+
+\vfill 
+\pause 
+\begin{mygreenbox}[title=\text{Example: G is an \textbf{induced subgraph} of H}]
+\begin{figure}
+\includegraphics[width=.7\textwidth]{images/subgraph_induced.png}
+\end{figure}	
+\end{mygreenbox}
+\vfill 
+\pause 
+\colorbox{red!30}{\textbf{Solution.}} Possibly remove some vertices (and edges that touch them, so that you still have a graph).  \textcolor{red}{\sout{Then possibly remove some additional edges.}}	
+\end{frame}
+
+
+\begin{frame}{Spanning subgraphs}
+
+
+\colorbox{yellow!30}{\textbf{Poll.}} How would you describe a \textbf{spanning subgraph} in words?
+\vfill 
+\pause 
+
+\colorbox{green!30}{\textbf Definition.} Let $G$ and $H$ be graphs.  We call $G$ a \textbf{spanning subgraph} of $H$ provided $G$ is a subgraph of $H$ and $V(G)=V(H)$.
+\vfill
+\pause 
+\begin{mygreenbox}[title=\text{Example: G is a \textbf{spanning subgraph} of H}]
+\begin{figure}
+\includegraphics[width=.8\textwidth]{images/subgraph_spanning.png}
+\end{figure}	
+\end{mygreenbox}
+\vfill 
+\pause 
+\colorbox{red!30}{\textbf{Solution.}} \textcolor{red}{\sout{ Possibly remove some vertices (and edges that touch them, so that you still have a graph). Then}}	 possibly remove some \textcolor{red}{\sout{additional}} edges.
+\end{frame}
+
+
+\begin{frame}[standout]
+Group exercises
+\end{frame}
+
+\begin{frame}
+\footnotesize 
+\vfill 
+\begin{columns}
+\begin{column}{0.33\textwidth}
+aaron.loomis: 18 \\ 
+adam.wyszynski: 4 \\ 
+alexander.knutson: 2 \\ 
+anthony.mann: 3 \\ 
+blake.leone: 8 \\ 
+bridger.voss: 5 \\ 
+caitlin.hermanson: 3 \\ 
+cameron.wittrock: 20 \\ 
+carsten.brooks: 5 \\ 
+carver.wambold: 10 \\ 
+colter.huber: 6 \\ 
+conner.reed1: 12 \\ 
+connor.mizner: 11 \\ 
+connor.yetter: 20 \\ 
+derek.price4: 6 \\ 
+devon.maurer: 8 \\ 
+emmeri.grooms: 1 \\ 
+erik.moore3: 12 \\ 
+ethan.johnson18: 10 \\ 
+evan.barth: 4 \\ 
+evan.schoening: 19 \\\end{column}
+\begin{column}{0.33\textwidth}
+griffin.short: 9 \\ 
+jack.fry: 8 \\ 
+jacob.ketola: 6 \\ 
+jacob.shepherd1: 14 \\ 
+jada.zorn: 1 \\ 
+jakob.kominsky: 14 \\ 
+james.brubaker: 19 \\ 
+jeremiah.mackey: 14 \\ 
+jett.girard: 16 \\ 
+john.fotheringham: 4 \\ 
+jonas.zeiler: 1 \\ 
+joseph.mergenthaler: 15 \\ 
+joseph.triem: 9 \\ 
+julia.larsen: 13 \\ 
+justice.mosso: 18 \\ 
+kaden.price: 11 \\ 
+lucas.jones6: 2 \\ 
+luka.derry: 16 \\ 
+luke.donaldson1: 9 \\\end{column}
+\begin{column}{0.33\textwidth}
+lynsey.read: 16 \\ 
+mason.barnocky: 20 \\ 
+matthew.nagel: 2 \\ 
+micaylyn.parker: 7 \\ 
+michael.oswald: 19 \\ 
+nolan.scott1: 13 \\ 
+owen.obrien: 18 \\ 
+pendleton.johnston: 13 \\ 
+peter.buckley1: 17 \\ 
+reid.pickert: 3 \\ 
+ryan.barrett2: 15 \\ 
+samuel.hemmen: 10 \\ 
+samuel.mosier: 11 \\ 
+samuel.rollins: 16 \\ 
+sarah.periolat: 5 \\ 
+timothy.true: 17 \\ 
+tristan.nogacki: 12 \\ 
+tyler.broesel: 7 \\ 
+william.elder1: 15 \\ 
+yebin.wallace: 7 \\ 
+zeke.baumann: 17 \\\end{column}
+\end{columns}
+\vfill
+\end{frame}
+
+\begin{frame}{Group exercises}
+\small 
+\noindent
+\begin{minipage}[c]{0.6\textwidth}
+\begin{enumerate}
+	\item  Let $G$ be the graph in the top figure.   Draw pictures of the following subgraphs: (a) $G-1$, (b) $G-\set{5,6}$, (c) $G[\set{2,4,6}]$.
+	\item Which of the various properties of relations does the is-a-subgraph-of relation exhibit? Is it reflexive? Symmetric? Transitive?
+    \item Let $G$ be a complete graph with $n$ vertices.  (a) How many spanning subgraphs does $G$ have? (b) How many induced subgraphs does $G$ have?
+    \item Let $G$ and $H$ be the two graphs in the bottom figure.  Please find $\alpha(G), \omega(G), \alpha(H), \omega(H)$.  (Recall that $\alpha(\cdot)$ is the size of a largest independent set and $\omega(\cdot)$ is the size of a largest clique.) 
+\end{enumerate}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.38\textwidth}
+   
+    \includegraphics[width=\textwidth]{images/subgraph_1} %
+    
+    \vspace{2cm}
+    
+    \includegraphics[width=\textwidth]{images/subgraph_2}
+     \vspace{2cm}
+\end{minipage}%    
+
+\end{frame}
+
+
+
+
+\end{document}

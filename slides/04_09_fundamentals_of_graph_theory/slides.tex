@@ -284,4 +284,190 @@ zeke.baumann: 15 \\\end{column}
 
 
 
+\begin{frame}{Solution to group exercise \#1}
+\small 
+\textbf{Problem.} Write the graph below as a pair of sets $(V, E)$.
+\vfill 
+\begin{center}
+    \includegraphics[width=.5\textwidth]{images/simple_graph_2} %
+\end{center}   
+
+\vfill 
+
+\textbf{Solution.}
+\[ \bigg( \set{1,2,3,4,5,6}, \bigg\{ \set{1,2}, \set{2,5}, \set{5,4}, \set{1,4} \bigg\} \bigg) \]
+    
+\end{frame}
+
+
+
+\begin{frame}{Solution to group exercise \#2}
+\small 
+\textbf{Problem.} Draw a picture of the graph below
+	  \resizebox{\linewidth}{!}{$
+	   \bigg( \set{a,b,c,d,e}, \; \bigg\{  \set{a,b}, \set{a,c}, \set{a,d}, \set{b,e}, \set{c,d} \bigg\} \bigg) 	
+	$.}
+
+\vfill 
+
+\textbf{Solution.} There are many possible solutions.  For example:
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={circle, draw, minimum size=1cm}, node distance=2cm]
+    \node (A) {A};
+    \node (B) [right of=A] {B};
+    \node (C) [below of=B] {C};
+    \node (D) [left of=C] {D};
+    \node (E) [right of=B] {E};
+
+    % Edges
+    \draw (A) -- (B);
+    \draw (A) -- (C);
+    \draw (A) -- (D);
+    \draw (B) -- (E);
+    \draw (C) -- (D);
+\end{tikzpicture}
+
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#3}
+\small 
+\textbf{Problem.} Construct a graph for which the is-adjacent relation, $\sim$, is transitive.
+
+\vfill 
+
+\textbf{Solution.} There are many possible solutions.  For example:
+
+\begin{minipage}{0.3\textwidth}
+\vspace{.2cm}
+\centering
+This \\[1ex]
+\begin{tikzpicture}[every node/.style={circle, draw, minimum size=0.8cm}, node distance=1.5cm]
+    \node (A) {A};
+    \node (B) [below of=A] {B};
+    \node (C) [below of=B] {C};
+
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+    \draw (A) to[bend right=45]  (C);
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\textwidth}
+Or this \\[1ex]
+\vspace{.2cm}
+\centering
+\begin{tikzpicture}[every node/.style={circle, draw, minimum size=0.8cm}, node distance=1.5cm]
+    \node (A) {A};
+    \node (B) [below of=A] {B};
+    \node (C) [below of=B] {C};
+    \node (D) [right of=B] {D};
+
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+    \draw (A) to[bend right=45]  (C);
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\textwidth}
+But not this \\[1ex]
+\centering
+\begin{tikzpicture}[every node/.style={circle, draw, minimum size=0.8cm}, node distance=1.5cm]
+    \node (A) {A};
+    \node (B) [below of=A] {B};
+    \node (C) [below of=B] {C};
+    \node (D) [right of=B] {D};
+
+    \draw (A) -- (B);
+    \draw (B) -- (C);
+    \draw (A) to[bend right=45]  (C);
+    \draw (B) -- (D);
+\end{tikzpicture}
+\end{minipage}
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#4}
+\footnotesize 
+\textbf{Problem.} How many edges are in $K_n$, a complete graph with $n$ vertices?
+
+\vfill 
+\begin{minipage}{0.4\textwidth}
+\textbf{Example.} $K_5$ is shown to the right.
+\end{minipage} %
+\hfill
+\begin{minipage}{0.55\textwidth}
+\begin{figure}
+\includegraphics[width=.3\linewidth]{images/complete_graph.png}	
+\end{figure}
+\end{minipage} 
+
+\vfill 
+
+\textbf{Solution.} In a complete graph, all pairs of vertices are adjacent.  Since there are $\binom{n}{2} = \frac{n(n-1)}{2}$ ways to choose pairs of $n$ vertices, there must be $\binom{n}{2} = \frac{n(n-1)}{2}$ edges.
+
+\vfill 
+
+\textbf{Alternate Solution (From A Student).} We can use Theorem 47.5, which says
+%
+\begin{align}
+\sum_{v \in V} d(v) = 2 |E|. 
+\label{eqn:sum_of_degrees_gives_twice_the_edges}
+\end{align}
+
+In a complete graph, $d(v) = n-1$ for all vertices $v \in V$, since each vertex must be adjacent to all other vertices. Since there are $n$ vertices all together, we have
+
+\[ \sum_{v \in V} d(v) = \sum_{v \in V} (n-1) = |V| (n-1) =  n(n-1)  \]
+
+Substituting this into \Eqref{eqn:sum_of_degrees_gives_twice_the_edges} and solving for $|E|$ yields the solution:
+\[ |E| =   \frac{n(n-1)}{2}.\]
+
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#5 (Slide 1/2)} 
+\footnotesize 
+\textbf{Problem.} Prove that in every graph, the number of vertices with odd degree is even. 
+
+\vfill 
+\textbf{Remark.} If you'd like some motivation for this problem, check out Section 7.1 (pp.125-129) of \href{https://file.fouladi.ir/courses/discmath/books/Springer.Verlag.Discrete.Mathematics.Elementary.and.Beyond.ebook-TLFeBOOK.pdf}{\underline{\textcolor{blue}{the book by L\'aszl\'o Lov\'asz and others}}}.  It's a really fun read!
+
+\vfill 
+
+\textbf{Solution} (by L\'aszl\'o Lov\'asz).  One way of proving the theorem is to build up the graph one edge at a time, and observe how the parities of the degrees change. An example is shown in Figure 7.4. We start with a graph with no edge, in which every degree is 0, and so the number of nodes with odd degree is 0, which is an even number.
+ 
+\begin{figure}
+\includegraphics[width=.4\linewidth]{images/number_of_nodes_with_odd_degree_is_even.png}	
+\caption{Building up a graph one edge at a time. Black circles mark nodes of even degree.}
+\end{figure}
+
+\hfill (See next slide for more.)
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#5 (Slide 2/2)} 
+\footnotesize 
+
+\begin{figure}
+\includegraphics[width=.4\linewidth]{images/number_of_nodes_with_odd_degree_is_even.png}	
+\end{figure}
+
+\vspace{-.2cm}
+
+Now if we connect two nodes by a new edge, we change the parity of the degrees at these nodes. In particular,
+\begin{itemize}
+\item if both endpoints of the new edge had even degree, we increase the number of nodes with odd degree by 2;
+\item if both endpoints of the new edge had odd degree, we decrease the number of nodes with odd degree by 2;
+\item if one endpoint of the new edge had even degree and the other had odd degree, then we don’t change the number of nodes with odd degree.
+\end{itemize}
+
+Thus if the number of nodes with odd degree was even before adding the new edge, it remained even after this step. This proves the theorem. (Note that this is a proof by induction on the number of edges.)
+
+\end{frame}
+
 \end{document}

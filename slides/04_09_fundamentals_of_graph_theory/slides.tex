@@ -429,7 +429,22 @@ Substituting this into \Eqref{eqn:sum_of_degrees_gives_twice_the_edges} and solv
 \end{frame}
 
 
-\begin{frame}{Solution to group exercise \#5 (Slide 1/2)} 
+\begin{frame}{Solution to group exercise \#5}
+\small 
+\textbf{Problem.} How many different graphs can be formed with vertex set $V=\set{1,2,3,\hdots,n}$?
+\vfill 
+%There are $2^{\binom{n}{2}}$ different graphs that can be formed from $n$ vertices.
+\textbf{Solution.}  $2^{\raisebox{0.3ex}{\scriptsize$\binom{n}{2}$}}$.   To justify this, note:
+\begin{itemize}
+\item When forming a graph from $n$ vertices, there are $\binom{n}{2}=\frac{n(n-1)}{2}$ \underline{candidate} edges (since there are $\binom{n}{2}$ ways to choose pairs from a set of $n$ items).
+\item  For each edge, we make a free binary decision to include or exclude the edge in the graph.
+\item  Thus, by the multiplication principle (and specifically Scheinerman Theorem 8.6), there are $2^{\raisebox{0.3ex}{\scriptsize$\binom{n}{2}$}}$ possible graphs that can be formed.  [Imagine forming a list of length $\binom{n}{2}$, where each entry in the list takes on one of 2 values (e.g. \texttt{include} or \texttt{exclude}) corresponding to whether that particular edge is included or excluded in the graph.]
+\end{itemize}
+
+	
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#6 (Slide 1/2)} 
 \footnotesize 
 \textbf{Problem.} Prove that in every graph, the number of vertices with odd degree is even. 
 
@@ -450,7 +465,7 @@ Substituting this into \Eqref{eqn:sum_of_degrees_gives_twice_the_edges} and solv
 \end{frame}
 
 
-\begin{frame}{Solution to group exercise \#5 (Slide 2/2)} 
+\begin{frame}{Solution to group exercise \#6 (Slide 2/2)} 
 \footnotesize 
 
 \begin{figure}

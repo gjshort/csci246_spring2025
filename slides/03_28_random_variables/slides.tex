@@ -611,17 +611,13 @@ Hence, $X$ and $Y$ are not independent.
 \item \textit{Intuition.} These random variables should be independent because knowing the suit of the card doesn't provide any information about the rank.  For instance, knowing your card is a $\heartsuit$ doesn't change the probability that it is a King.
 \vfill 
 \item \textit{Mathematical argument.} By Def 33.6 in Scheinerman, $X$ and $Y$ are independent if for all $x,y$
-
-\[P(X=x \text{ and } Y=y) = P(X=x) \, P(Y=y). \]
-Let $x$ be any value in the set $\set{2,3,4,5,6,7,8,9,10,J,Q,K,A}$.  Let $y$ be any value in $\set{\heartsuit, \diamondsuit, \spadesuit, \clubsuit}$. Note that $P(X=x) = \frac{1}{13}$ and $P(Y=y) = \frac{1}{4}$.  Finally,
 %
-\begin{align*}
-P(X=x \land Y=b) = \frac{1}{52} = 	\frac{1}{13} \times \frac{1}{4} = P(X=x) \times P(Y=b)
-\end{align*}
+\begin{align}
+P(X=x \text{ and } Y=y) = P(X=x) \, P(Y=y).
+\label{eqn:def_independence}
+\end{align}
 %
-Hence, $X$ and $Y$ are independent random variables.
-
-
+Let $x$ be any value in the set $\set{2,3,4,5,6,7,8,9,10,J,Q,K,A}$.  Let $y$ be any value in $\set{\heartsuit, \diamondsuit, \spadesuit, \clubsuit}$. Then $P(X=x) = \frac{1}{13}$ and $P(Y=y) = \frac{1}{4}$.   Moreover, $P(X=x \land Y=y) = \frac{1}{52}.$  Thus, \Eqref{eqn:def_independence} is satisfied (since $\frac{1}{52} = 	\frac{1}{13} \times \frac{1}{4}$).   Hence, $X$ and $Y$ are independent random variables.
 \end{itemize}
 
 \end{frame}

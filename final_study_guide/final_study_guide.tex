@@ -1,0 +1,199 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inzane Syllabus Template
+% LaTeX Template
+% Version 1.2 (8.22.2019)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Carmine Spagnuolo (cspagnuolo@unisa.it) with major modifications by 
+% Zane Wolf (zwolf.mlxvi@gmail.com)
+%
+% I (Zane) have left a lot of instructions both in the .tex file and the .cls file that can guide you to customize this document to suite your tastes and requirements. Here is a brief guide: 
+%  - Changing the Main Color: .cls line 39
+%  - Adding more FAQs: .cls line 126 and .tex line 99
+%  - Adding TA emails: uncomment .cls lines 220 & 224 and .tex lines 85 and 89
+%  - Deleting the FAQ sidebar entirely: .tex line 188
+%  - Removing the Lab/TA Info and placing a brief Overview/About section in their place:        uncomment .tex line 91 and .cls line 227, and comment .cls lines for the LAB/TA info        that you no longer want (c. lines 184-227)
+
+%
+% I am also happy to help with crafting/designing modifications to this template to help suite your personal needs in a syllabus. Feel free to reach out! 
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[letterpaper]{inzane_syllabus} % a4paper for A4
+
+\usepackage{preamble_syllabus}
+
+
+\usepackage{booktabs, colortbl, xcolor}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{ltablex} 
+\usepackage{multirow}
+
+\setlist{nolistsep}
+
+\usepackage{lscape}
+\newcolumntype{r}{>{\hsize=0.9\hsize}X}
+\newcolumntype{w}{>{\hsize=0.6\hsize}X}
+\newcolumntype{m}{>{\hsize=.9\hsize}X}
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\arraystretch}{2.0}
+%----------------------------------------------------------------------------------------
+%	 PERSONAL INFORMATION
+%----------------------------------------------------------------------------------------
+
+\profilepic{images/rock_stack.png} % Profile picture, if the height of the picture is less than that of the cirle, it will have a flat bottom. 
+
+% To remove any of the following, you need to comment/delete the lines in the .cls file (c. line 186). Commenting/deleting the lines below will produce an error. 
+
+%To add different lines, you will need to create the new command, e.g. \profPhone, in the .cls file c. line 76, and command to create the line in the side bar in the .cls file c. line 186
+
+\classname{Discrete \\ Structures} 
+\classnum{CSCI 246} 
+
+%%%%%%%%%%%%%%% PROF INFO
+\profname{Dr. Michael  Wojnowicz (Mike)}
+\officehours{Office Hrs: Mon \& Wed 1-1:45p, Wed 3:15-4:45p} 
+\office{Barnard 352}
+\site{https://mikewojnowicz.github.io/} 
+\email{michael.wojnowicz@montana.edu}
+
+%%%%%%%%%%%%%%% COURSE  INFO
+\classdays{}
+\classhours{Class meetings: Mon, Wed, Fri 2:10-3p}
+\classloc{Reid 401}
+\prereq{Prereq: Calculus, although this is not used.}
+
+
+
+%%%%%%%%%%%%%%% TA INFO
+\taAname{Fatima Ododo}
+\taAofficehours{Mon, Thurs 10-11am}
+\taAoffice{Student Success Center (Barnard 259)}
+\taAemail{\small fatima.ododo@student.montana.edu}
+\taBname{}
+\taBofficehours{}
+\taBoffice{}
+\taBemail{}
+
+
+%%%%%%%%%%%%%%% TUTOR
+\tutorname{Kelly Joyce}
+\tutoremail{kelly.joyce1@student.montana.edu}
+\tutorofficehours{Thurs 4-6pm}
+\tutoroffice{SmartyCats Center (2nd floor Renne)}
+
+%%%% FAQs
+
+%to add more questions or remove this section, go to the .cls file and start with lines comment
+%lines 226-250. Also comment out this section as well as line 152(ish), the command \makeSide
+
+\qOne{What are discrete structures?}
+\aOne{A discrete structure refers to a mathematical system that is composed of distinct, separate  elements, as opposed to continuous structures where elements can vary smoothly. Think of a digital clock  vs. an analog clock (where second hand loops around continuously without stopping). Examples of discrete structures include sets with finitely many elements (e.g. the integers 1 to 10), lists, graphs, and logical statements. }
+
+
+\qTwo{What is discrete mathematics?}
+\aTwo{Discrete mathematics is the study of discrete structures and mathematical operations that can be performed upon them.}
+
+
+\qThree{Why study discrete mathematics?}
+\aThree{%It does not directly
+%help us write programs. At the same time, 
+It is the mathematics underlying almost all of computer science. Here are a few examples: (1)  designing high-speed networks and message routing paths,  (2) finding good algorithms for sorting, (3) performing web searches, (4) analyzing algorithms for correctness and efficiency, (5) formalizing security requirements, and (6) designing cryptographic protocols.
+}
+
+\qFour{Where is discrete mathematics used in the MSU computer science curriculum?}
+\aFour{Discrete mathematics is used  throughout the curriculum.  Proofs in particular play a critical role in CSCI 338 (Computer Science Theory) and CSCI 432 (Advanced Algorithm Topics).
+}
+
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makeFullPage
+\section{Final Study Guide}
+
+Below is a list of group exercises you should know how to do for the final exam.  The date/topic is provided to guide you to the slide deck where you can find those group exercises as well as their solutions.   
+
+The final exam will be a subset of these group exercises. (The final will probably about 8-10 exercises.  Likely each module will be covered by at least one question.)   
+
+You will be provided with key definitions (e. g. prime, composite, divisible, independent) and theorems (e. g. for solving recurrence relations).  
+ 
+\begin{center}
+\begin{tabularx}{\textwidth}{p{2cm}p{2cm}p{8cm}p{9.5cm}} %change the width of the comments by changing these cm measurements. Add/substract columns by adding/deleting p{} sections. 
+\arrayrulecolor{myCOLOR}\hline
+\multicolumn{4}{l}{\textbf{\textcolor{myCOLOR}{\large MODULE 1: Introduction to mathematical thinking }}} \\
+\hline
+Fri & Jan 17 &  Theorem & Ex. 1, 2, 3 \\
+Wed &  Jan 22 & Proof & Ex. 1, 3 \\
+Fri &  Jan 24 & Counterexample & Ex. 1, 2, 4  \\
+Mon &  Jan 27 & Boolean Algebra & Ex. 1, 2b, 2c \\
+Mon &  Feb 3 & More Induction  & Ex. 1, 2  \\
+\hline
+\multicolumn{4}{l}{\textbf{\textcolor{myCOLOR}{\large MODULE 2: Discrete Collections }}} \\
+\hline
+
+Wed &  Feb 5 & Lists & Ex. 1, 2, 3 \\
+Fri &  Feb 7 & Factorial & Ex.  1, 2\\
+Mon &  Feb 10 & Sets &  Ex. 1a, 1b, 1c, 1f, 2  \\
+Wed &  Feb 12 & Quantifiers & Ex. 2, 3 \\
+Fri &  Feb 14 & Operations on Sets & Ex. 1,2,3 \\
+\hline
+\multicolumn{4}{l}{\textbf{\textcolor{myCOLOR}{\large MODULE 3: Relations and functions }}} \\
+\hline
+Wed &  Feb 19 & Intro to Relations and Functions & Ex. 2 \\
+Fri &  Feb 21  & Intro to Relations and Functions (continued) & Ex. 1,2 \\
+Mon &  Feb 24 & Relations & Ex. 1,2,3,4,5 \\
+ &  & & (for \#5, skip anti-symmetric and anti-reflexive)\\
+Wed &  Feb 26 & Equivalence Relations & Ex. 1,2,3 \\
+Fri &  Feb 28 & Partitions & Ex. 1,2,3 \\
+Mon &  Mar 3 & Functions & Ex. 1,2,3 \\
+\hline
+\multicolumn{4}{l}{\textbf{\textcolor{myCOLOR}{\large MODULE 4: Counting}}} \\
+\hline
+Wed &  Mar 5  & Binomial Coefficients (Combinations) & Ex. 1,2,3,4  \\
+Mon &  Mar 10  & Inclusion-Exclusion & Ex. 2\\
+\hline
+\multicolumn{4}{l}{\textbf{\textcolor{myCOLOR}{\large MODULE 5: Discrete probability}}} \\
+\hline
+Wed &  Mar 12 & Intro to Probability (Part 1) & Ex. 1,2,3 \\ 
+Mon &  Mar 24 &  Intro to Probability  (Part 2) & Ex. 1,3 \\
+Wed &  Mar 26 & Conditional Probability /Independence & Ex. 1,2,4 \\
+Fri & Mar 28  &  Random variables &  Ex. 1,3  \\
+Mon &  Mar 31 & Expectation & Ex. 2,3 \\
+\hline
+\multicolumn{4}{l}{\textbf{\textcolor{myCOLOR}{\large MODULE 6: Recurrence and computational complexity}}} \\
+\hline
+Wed &  Apr 2 & Recurrence  & Ex. 1,2 \\
+Fri &  Apr 4  & Big O Notation & Ex. 1,2,3,4  \\
+\hline
+\multicolumn{4}{l}{\textbf{\textcolor{myCOLOR}{\large MODULE 7: Graph theory}}} \\
+\hline
+Wed &  Apr 9 & Fundamentals of Graph Theory & Ex. 1,2,3,4,5,6\\
+Fri &  Apr 11 & Subgraphs & Ex. 3 \\ 
+Mon &  Apr 14  & Connection & Ex. 1, 3\\ 
+\hline
+\hline 
+\end{tabularx}
+\end{center}
+
+
+
+\end{document} 
+
+

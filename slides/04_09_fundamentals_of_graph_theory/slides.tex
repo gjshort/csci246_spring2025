@@ -420,7 +420,7 @@ But not this \\[1ex]
 
 In a complete graph, $d(v) = n-1$ for all vertices $v \in V$, since each vertex must be adjacent to all other vertices. Since there are $n$ vertices all together, we have
 
-\[ \sum_{v \in V} d(v) = \sum_{v \in V} (n-1) = |V| (n-1) =  n(n-1)  \]
+\[ \sum_{v \in V} d(v) =  n(n-1)  \]
 
 Substituting this into \Eqref{eqn:sum_of_degrees_gives_twice_the_edges} and solving for $|E|$ yields the solution:
 \[ |E| =   \frac{n(n-1)}{2}.\]
@@ -437,7 +437,7 @@ Substituting this into \Eqref{eqn:sum_of_degrees_gives_twice_the_edges} and solv
 \textbf{Solution.}  $2^{\raisebox{0.3ex}{\scriptsize$\binom{n}{2}$}}$.   To justify this, note:
 \begin{itemize}
 \item When forming a graph from $n$ vertices, there are $\binom{n}{2}=\frac{n(n-1)}{2}$ \underline{candidate} edges (since there are $\binom{n}{2}$ ways to choose pairs from a set of $n$ items).
-\item  For each edge, we make a free binary decision to include or exclude the edge in the graph.
+\item  For each edge, we make a binary decision to include or exclude the edge in the graph.
 \item  Thus, by the multiplication principle (and specifically Scheinerman Theorem 8.6), there are $2^{\raisebox{0.3ex}{\scriptsize$\binom{n}{2}$}}$ possible graphs that can be formed.  [Imagine forming a list of length $\binom{n}{2}$, where each entry in the list takes on one of 2 values (e.g. \texttt{include} or \texttt{exclude}) corresponding to whether that particular edge is included or excluded in the graph.]
 \end{itemize}
 
